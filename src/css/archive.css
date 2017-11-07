@@ -1,0 +1,180 @@
+        .timeline {
+            position: relative;
+            font-family: "Open Sans", "open-sans", sans-serif;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -1px;
+            height: 100%;
+            width: 2px;
+            background: #f97171;
+        }
+
+        .title {
+            /* position: relative; */
+            margin: 2em auto 1em;
+        }
+
+        .year {
+            position: relative;
+            font: 600 30px/1.5;
+            font-size: 18px;
+            display: block;
+            color: #323a45;
+            text-transform: none;
+            margin: .625rem 0 .5rem 0;
+            margin-left: 1em;
+        }
+
+        .year::before {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-left: -22px;
+            margin-top: -4px;
+            width: 8px;
+            height: 8px;
+            background: #f36;
+            border-radius: 50%;
+        }
+
+        .posts-ul {
+            margin: 14px 0;
+            padding-left: 40px;
+        }
+
+        .post-li {
+            margin: 1em auto;
+            display: flex;
+        }
+
+        .post-date {
+            width: 70px;
+            font-size: 14px;
+        }
+
+        .post-date-cat {
+            width: 120px;
+            color: #2f7bbd;
+            transition: color .3s;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .post-date-cat:hover {
+            color: #f36;
+        }
+
+        .post-categories {
+            width: 100px;
+            /* display: none; */
+        }
+
+        .post-categorie {
+            color: #2f7bbd;
+            transition: color .3s;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .post-categorie:hover {
+            color: #f36;
+        }
+
+        .post-title {
+            max-width: calc(100% - 70px);
+            color: #191d22;
+            transition: color .3s;
+            cursor: pointer;
+            font-size: 15px;
+            border-bottom: 1px dotted rgba(64, 153, 255, .6);
+        }
+
+        .post-title-cat {
+            /* max-width: calc(100% - 70px); */
+            color: #191d22;
+            transition: color .3s;
+            cursor: pointer;
+            font-size: 15px;
+            border-bottom: 1px dotted rgba(64, 153, 255, .6);
+        }
+
+        .post-title:hover {
+            color: #f36;
+            border-bottom: 1px solid #f36;
+        }
+
+        .resume-title {
+            font-weight: 600;
+            font: 600 30px/1.5 "Open Sans", "open-sans", sans-serif;
+            font-size: 22px;
+            color: #323a45;
+        }
+
+        .resume-sub-title {
+            display: inline-block;
+            font-weight: 600;
+            font: 600 30px/1.5 "Open Sans", "open-sans", sans-serif;
+            font-size: 18px;
+            color: #323a45;
+            margin: 5px 0;
+            border-bottom: 1px dotted rgba(64, 153, 255, .6);
+            cursor: pointer;
+            transition: color .3s;
+        }
+
+        .resume-sub-title:hover {
+            color: #f36;
+        }
+
+        .resume-p {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .resume-p>a {
+            color: #2f7bbd;
+            font-size: 16px;
+            line-height: 1.9;
+            cursor: pointer;
+            transition: color .3s;
+        }
+
+        .resume-p>a:hover {
+            color: #f36;
+            font-size: 16px;
+            line-height: 1.9;
+            cursor: pointer;
+        }
+
+        .resume-love {
+            width: 100%;
+            border-radius: 3px;
+            margin: 5px 0 10px;
+        }
+
+        .work {
+            font-size: 16px;
+            margin-left: 18px;
+            line-height: 1.9
+        }
+
+        .work-date {
+            margin-right: 20px;
+        }
+
+        .work>a {
+            color: #2f7bbd;
+            cursor: pointer;
+            transition: color .3s;
+        }
+
+        .work>a:hover {
+            color: #f36;
+            /* ; */
+        }

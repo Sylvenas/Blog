@@ -11,22 +11,24 @@ import 'array-from';
 import 'string.prototype.includes';
 import 'string.prototype.repeat';
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Flex from 'components/Flex';
 import Footer from 'components/LayoutFooter';
 import Header from 'components/LayoutHeader';
-import {media} from 'theme';
+import { media } from 'theme';
 
 // Import global styles
 import '../prism-styles';
 import 'glamor/reset';
 import 'css/reset.css';
 import 'css/algolia.css';
+import 'css/archive.css'
 import 'css/icomoon.css';
+import 'css/blog.css';
 
 class Template extends Component {
   render() {
-    const {children, location} = this.props;
+    const { children, location } = this.props;
 
     // TODO - is there a better way to check if we need we have a sidebar?
     let layoutHasSidebar = false;
@@ -53,9 +55,9 @@ class Template extends Component {
           valign="stretch"
           css={{
             flex: '1 0 auto',
-            marginTop: 60,
+            marginTop: 50,
             [media.between('medium', 'large')]: {
-              marginTop: 50,
+              marginTop: 45,
             },
             [media.lessThan('medium')]: {
               marginTop: 40,

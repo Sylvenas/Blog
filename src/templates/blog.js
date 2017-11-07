@@ -9,13 +9,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import MarkdownPage from 'components/MarkdownPage';
-import {createLinkBlog} from 'utils/createLink';
+import { createLinkBlog } from 'utils/createLink';
 
 const toSectionList = allMarkdownRemark => [
   {
     title: 'Recent Posts',
     items: allMarkdownRemark.edges
-      .map(({node}) => ({
+      .map(({ node }) => ({
         id: node.fields.slug,
         title: node.frontmatter.title,
       }))
@@ -26,7 +26,7 @@ const toSectionList = allMarkdownRemark => [
   },
 ];
 
-const Blog = ({data, location}) => (
+const Blog = ({ data, location }) => (
   <MarkdownPage
     authors={data.markdownRemark.frontmatter.author}
     createLink={createLinkBlog}
@@ -35,7 +35,7 @@ const Blog = ({data, location}) => (
     ogDescription={data.markdownRemark.excerpt}
     markdownRemark={data.markdownRemark}
     sectionList={toSectionList(data.allMarkdownRemark)}
-    titlePostfix=" - React Blog"
+    titlePostfix=" - little forest"
   />
 );
 
@@ -49,16 +49,9 @@ export const pageQuery = graphql`
     markdownRemark(fields: {slug: {eq: $slug}}) {
       html
       frontmatter {
-        id
         title
-        next
-        prev
-        author {
-          frontmatter {
-            name
-            url
-          }
-        }
+        img
+        author
       }
       fields {
         date(formatString: "MMMM DD, YYYY")
@@ -73,9 +66,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          id
           frontmatter {
-            id
             title
           }
           fields {

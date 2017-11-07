@@ -8,9 +8,9 @@
 
 import Link from 'gatsby-link';
 import React from 'react';
-import {colors, media} from 'theme';
+import { colors, media } from 'theme';
 
-const HeaderLink = ({isActive, title, to}) => (
+const HeaderLink = ({ isActive, title, to }) => (
   <Link css={[style, isActive && activeStyle]} to={to}>
     {title}
     {isActive && <span css={activeAfterStyle} />}
@@ -25,8 +25,8 @@ const style = {
   transition: 'color 0.2s ease-out',
   paddingLeft: 15,
   paddingRight: 15,
-  fontWeight: 500,
-  fontFamily:'brandon-grotesque',
+  fontWeight: 400,
+  fontFamily: 'brandon-grotesque',
 
   ':focus': {
     outline: 0,
@@ -37,11 +37,13 @@ const style = {
   [media.size('xsmall')]: {
     paddingLeft: 8,
     paddingRight: 8,
+    fontSize: 14,
   },
 
   [media.between('small', 'medium')]: {
     paddingLeft: 10,
     paddingRight: 10,
+    fontSize: 14,
   },
 
   [media.greaterThan('xlarge')]: {

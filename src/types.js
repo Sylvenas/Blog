@@ -7,25 +7,24 @@
 
 export type Author = {
   name: string,
-  url: string,
 };
 
 export type Node = {
   excerpt: string,
   fields: {
-    date?: string,
+    date: string,
     path: string,
     redirect: string,
     slug: string,
   },
   frontmatter: {
-    author?: Array<Author>,
+    author?: Array<string>,
     next?: string,
     prev?: string,
     title: string,
     excerpt?: string,
-    categories?: Array<string>
-    id: string
+    categories?: string,
+    id?: string,
     img?: string
   },
   html: string,

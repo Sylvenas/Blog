@@ -11,6 +11,7 @@ import Container from 'components/Container';
 import Flex from 'components/Flex';
 import MarkdownHeader from 'components/MarkdownHeader';
 import NavigationFooter from 'templates/components/NavigationFooter';
+import Share from 'components/Share';
 import React from 'react';
 import StickyResponsiveSidebar from 'components/StickyResponsiveSidebar';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
@@ -29,7 +30,7 @@ type Props = {
   ogDescription: string,
   location: Location,
   markdownRemark: Node,
-  sectionList: Array<Object>, // TODO: Add better flow type once we have the Section component
+  sectionList?: Array<Object>, // TODO: Add better flow type once we have the Section component
   titlePostfix: string,
 };
 
@@ -46,7 +47,7 @@ const MarkdownPage = ({
 }: Props) => {
   const hasAuthors = authors.length > 0;
   const titlePrefix = markdownRemark.frontmatter.title || '';
-
+  console.log(markdownRemark)
   return (
     <Flex
       direction="column"
@@ -65,50 +66,20 @@ const MarkdownPage = ({
         title={`${titlePrefix}${titlePostfix}`}
       />
       <div css={{ flex: '1 0 auto' }}>
+        <MarkdownHeader title={titlePrefix} imgUrl={markdownRemark.frontmatter.img} authors={authors} date={date} />
         <Container>
           <div css={sharedStyles.articleLayout.container}>
             <Flex type="article" direction="column" grow="1" halign="stretch">
-              <MarkdownHeader title={titlePrefix} />
-
-              {(date || hasAuthors) && (
-                <div css={{ marginTop: 15 }}>
-                  {date}{' '}
-                  {hasAuthors && (
-                    <span>
-                      by{' '}
-                      {toCommaSeparatedList(authors, author => (
-                        <a
-                          css={sharedStyles.link}
-                          href={author.frontmatter.url}
-                          key={author.frontmatter.name}>
-                          {author.frontmatter.name}
-                        </a>
-                      ))}
-                    </span>
-                  )}
-                </div>
-              )}
-
               <div css={sharedStyles.articleLayout.content}>
                 <div
                   css={[sharedStyles.markdown]}
                   dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
                 />
-
-                {markdownRemark.fields.path && (
-                  <div css={{ marginTop: 80 }}>
-                    <a
-                      css={sharedStyles.articleLayout.editLink}
-                      href={`https://github.com/reactjs/reactjs.org/tree/master/content/${markdownRemark
-                        .fields.path}`}>
-                      Edit this page
-                    </a>
-                  </div>
-                )}
+                <Share slug={markdownRemark.fields.slug} />
               </div>
             </Flex>
 
-            <div css={sharedStyles.articleLayout.sidebar}>
+            {/* <div css={sharedStyles.articleLayout.sidebar}>
               <StickyResponsiveSidebar
                 enableScrollSync={enableScrollSync}
                 createLink={createLink}
@@ -119,7 +90,7 @@ const MarkdownPage = ({
                 location={location}
                 sectionList={sectionList}
               />
-            </div>
+            </div> */}
           </div>
         </Container>
       </div>

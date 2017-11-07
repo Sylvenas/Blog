@@ -7,20 +7,20 @@
 'use strict';
 
 import React from 'react';
-import {media} from 'theme';
+import { media } from 'theme';
 
-const FooterNav = ({children, title, layoutHasSidebar = false}) => (
+const FooterNav = ({ children, title, layoutHasSidebar = false }) => (
   <div
     css={{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'flex-start',
-      width: '50%',
-      paddingTop: 40,
+      // width: '50%',
+      paddingTop: 54,
 
       [media.size('sidebarFixed')]: {
         paddingTop: 0,
-        width: '25%',
+        // width: '25%',
       },
     }}>
     <div

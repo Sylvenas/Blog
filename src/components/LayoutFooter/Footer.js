@@ -12,17 +12,17 @@ import FooterLink from './FooterLink';
 import FooterNav from './FooterNav';
 import MetaTitle from 'templates/components/MetaTitle';
 import React from 'react';
-import {colors, media} from 'theme';
+import { colors, media } from 'theme';
 
 import ossLogoPng from 'images/oss_logo.png';
 
-const Footer = ({layoutHasSidebar = false}) => (
+const Footer = ({ layoutHasSidebar = false }) => (
   <footer
     css={{
-      backgroundColor: colors.darker,
+      backgroundColor: '#252b33',
       color: colors.white,
-      paddingTop: 10,
-      paddingBottom: 50,
+      paddingTop: 0,
+      paddingBottom: 20,
 
       [media.size('sidebarFixed')]: {
         paddingTop: 40,
@@ -46,109 +46,13 @@ const Footer = ({layoutHasSidebar = false}) => (
             paddingRight: layoutHasSidebar ? 380 : null,
           },
         }}>
-        <div
-          css={{
-            flexWrap: 'wrap',
-            display: 'flex',
-
-            [media.lessThan('large')]: {
-              width: '100%',
-            },
-            [media.greaterThan('xlarge')]: {
-              width: 'calc(100% / 3 * 2)',
-              paddingLeft: 40,
-            },
-          }}>
-          <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>Docs</MetaTitle>
-            <FooterLink to="/docs/hello-world.html">Quick Start</FooterLink>
-            <FooterLink to="/docs/thinking-in-react.html">
-              Thinking in React
-            </FooterLink>
-            <FooterLink to="/tutorial/tutorial.html">Tutorial</FooterLink>
-            <FooterLink to="/docs/jsx-in-depth.html">
-              Advanced Guides
-            </FooterLink>
-          </FooterNav>
-          <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>Community</MetaTitle>
-            <ExternalFooterLink
-              href="http://stackoverflow.com/questions/tagged/reactjs"
-              target="_blank"
-              rel="noopener">
-              Stack Overflow
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://discuss.reactjs.org"
-              target="_blank"
-              rel="noopener">
-              Discussion Forum
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://discord.gg/0ZcbPKXt5bZjGY5n"
-              target="_blank"
-              rel="noopener">
-              Reactiflux Chat
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://www.facebook.com/react"
-              target="_blank"
-              rel="noopener">
-              Facebook
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://twitter.com/reactjs"
-              target="_blank"
-              rel="noopener">
-              Twitter
-            </ExternalFooterLink>
-          </FooterNav>
-          <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>Resources</MetaTitle>
-            <FooterLink to="/community/conferences.html">
-              Conferences
-            </FooterLink>
-            <FooterLink to="/community/videos.html">Videos</FooterLink>
-            <ExternalFooterLink
-              href="https://github.com/facebook/react/wiki/Examples"
-              target="_blank"
-              rel="noopener">
-              Examples
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="https://github.com/facebook/react/wiki/Complementary-Tools"
-              target="_blank"
-              rel="noopener">
-              Complementary Tools
-            </ExternalFooterLink>
-          </FooterNav>
-          <FooterNav layoutHasSidebar={layoutHasSidebar}>
-            <MetaTitle onDark={true}>More</MetaTitle>
-            <FooterLink to="/blog/">Blog</FooterLink>
-            <ExternalFooterLink
-              href="https://github.com/facebook/react"
-              target="_blank"
-              rel="noopener">
-              GitHub
-            </ExternalFooterLink>
-            <ExternalFooterLink
-              href="http://facebook.github.io/react-native/"
-              target="_blank"
-              rel="noopener">
-              React Native
-            </ExternalFooterLink>
-            <FooterLink to="/acknowledgements.html">
-              Acknowledgements
-            </FooterLink>
-          </FooterNav>
-        </div>
         <section
           css={{
-            paddingTop: 40,
+            paddingTop: 20,
             display: 'block !important', // Override 'Installation' <style> specifics
 
             [media.greaterThan('xlarge')]: {
-              width: 'calc(100% / 3)',
+              width: 'calc(100% / 2)',
               order: -1,
             },
             [media.greaterThan('large')]: {
@@ -161,25 +65,34 @@ const Footer = ({layoutHasSidebar = false}) => (
               paddingTop: 40,
             },
           }}>
-          <a
-            href="https://code.facebook.com/projects/"
+          Ask me anything!
+            <a
+            css={{
+              marginLeft: 20,
+              padding: '6px 17px',
+              border: '1px solid #f36',
+              borderRadius: 3,
+              fontSize: 14,
+              fontWeight: 700,
+              color: '#fff',
+              transition: 'all .2s ease-in-out',
+              background: '#f36',
+              ':hover': {
+                background: '#252b33',
+                border: '1px solid #f36',
+                color: '#f36'
+              }
+            }}
             target="_blank"
-            rel="noopener">
-            <img
-              alt="Facebook Open Source"
-              css={{
-                maxWidth: 160,
-                height: 'auto',
-              }}
-              src={ossLogoPng}
-            />
-          </a>
+            href={`https://github.com/lit-forest/lit-forest.github.io/issues/new`}>
+            Issues
+            </a>
           <p
             css={{
-              color: colors.subtleOnDark,
-              paddingTop: 15,
+              color: '#fff',
+              paddingTop: 25,
             }}>
-            Copyright © 2017 Facebook Inc.
+            Copyright © 2017 Little Forest.
           </p>
         </section>
       </div>

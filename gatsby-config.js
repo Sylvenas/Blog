@@ -10,7 +10,7 @@ module.exports = {
   siteMetadata: {
     title: 'React: A JavaScript library for building user interfaces',
     siteUrl: 'https://reactjs.org',
-    rssFeedTitle: 'React',
+    rssFeedTitle: 'Little Forest',
     rssFeedDescription: 'A JavaScript library for building user interfaces',
   },
   mapping: {
@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-source-react-error-codes',
-    'gatsby-transformer-authors-yaml',
+    //'gatsby-transformer-authors-yaml',
     'gatsby-plugin-netlify',
     'gatsby-plugin-glamor',
     'gatsby-plugin-react-next',
@@ -91,7 +91,7 @@ module.exports = {
         }`,
         feeds: [
           {
-            serialize: ({query: {site, allMarkdownRemark}}) => {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign(
                   {},

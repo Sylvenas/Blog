@@ -7,8 +7,8 @@
 
 'use strict';
 
-import {css} from 'glamor';
-import {colors} from 'theme';
+import { css } from 'glamor';
+import { colors } from 'theme';
 
 const prismColors = {
   char: '#D8DEE9',
@@ -30,7 +30,7 @@ const prismColors = {
 css.global('.gatsby-highlight', {
   background: colors.dark,
   color: colors.white,
-  borderRadius: 10,
+  borderRadius: 5,
   overflow: 'auto',
   tabSize: '1.5em',
 });
@@ -154,7 +154,8 @@ css.global('.token.important', {
 });
 
 css.global('.token.bold', {
-  fontWeight: 700,
+  fontWeight: 600,
+  color: '#323a45'
 });
 css.global('.token.italic', {
   fontStyle: 'italic',

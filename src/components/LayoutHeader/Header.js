@@ -10,17 +10,17 @@ import Container from 'components/Container';
 import HeaderLink from './HeaderLink';
 import Link from 'gatsby-link';
 import React from 'react';
-import {colors, fonts, media} from 'theme';
-import {version} from 'site-constants';
+import { colors, fonts, media } from 'theme';
+import { version } from 'site-constants';
 import ExternalLinkSvg from 'templates/components/ExternalLinkSvg';
 import DocSearch from './DocSearch';
 
 import logoSvg from 'icons/logo.jpg';
 
-const Header = ({location}) => (
+const Header = ({ location }) => (
   <header
     css={{
-      backgroundColor: colors.darker,
+      backgroundColor: '#252b33',
       color: colors.white,
       position: 'fixed',
       zIndex: 1,
@@ -28,7 +28,20 @@ const Header = ({location}) => (
       top: 0,
       left: 0,
     }}>
-    <Container>
+    <div css={{
+      paddingLeft: 20,
+      paddingRight: 20,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+
+      [media.greaterThan('medium')]: {
+        width: '90%',
+      },
+
+      [media.size('xxlarge')]: {
+        maxWidth: 900,
+      },
+    }} >
       <div
         css={{
           display: 'flex',
@@ -104,7 +117,7 @@ const Header = ({location}) => (
             width: '60%',
 
             [media.size('xsmall')]: {
-              flexGrow: '1',
+              //flexGrow: '1',
               width: 'auto',
             },
             [media.greaterThan('xlarge')]: {
@@ -112,31 +125,31 @@ const Header = ({location}) => (
             },
             [media.lessThan('small')]: {
               maskImage:
-                'linear-gradient(to right, transparent, black 20px, black 90%, transparent)',
+              'linear-gradient(to right, transparent, black 13px, black 90%, transparent)',
             },
           }}>
           <HeaderLink
-            isActive={location.pathname.includes('/docs/')}
+            isActive={location.pathname === '/'}
             title="HOME"
-            to="/docs/hello-world.html"
+            to="/"
           />
           <HeaderLink
-            isActive={location.pathname.includes('/tutorial/')}
+            isActive={location.pathname.includes('/archive')}
             title="ARCHIVE"
-            to="/tutorial/tutorial.html"
+            to="/archive.html"
           />
           <HeaderLink
-            isActive={location.pathname.includes('/community/')}
+            isActive={location.pathname.includes('/categories')}
             title="CATEGORIES"
-            to="/community/support.html"
+            to="/categories.html"
           />
           <HeaderLink
-            isActive={location.pathname.includes('/blog')}
+            isActive={location.pathname.includes('/resume')}
             title="RESUME"
-            to="/blog/"
+            to="/resume"
           />
         </nav>
-        <DocSearch/>
+        <DocSearch />
         <div
           css={{
             [media.lessThan('medium')]: {
@@ -193,7 +206,7 @@ const Header = ({location}) => (
           </a>
         </div>
       </div>
-    </Container>
+    </div>
   </header>
 );
 

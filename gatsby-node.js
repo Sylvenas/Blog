@@ -6,10 +6,10 @@
 
 'use strict';
 
-const {resolve} = require('path');
+const { resolve } = require('path');
 const webpack = require('webpack');
 
-exports.modifyWebpackConfig = ({config, stage}) => {
+exports.modifyWebpackConfig = ({ config, stage }) => {
   // See https://github.com/FormidableLabs/react-live/issues/5
   config.plugin('ignore', () => new webpack.IgnorePlugin(/^(xor|props)$/));
 
@@ -22,8 +22,8 @@ exports.modifyWebpackConfig = ({config, stage}) => {
   return config;
 };
 
-exports.createPages = async ({graphql, boundActionCreators}) => {
-  const {createPage, createRedirect} = boundActionCreators;
+exports.createPages = async ({ graphql, boundActionCreators }) => {
+  const { createPage, createRedirect } = boundActionCreators;
 
   // Used to detect and prevent duplicate redirects
   const redirectToSlugMap = {};
@@ -31,8 +31,9 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
   const blogTemplate = resolve('./src/templates/blog.js');
   const communityTemplate = resolve('./src/templates/community.js');
   const docsTemplate = resolve('./src/templates/docs.js');
-  const tutorialTemplate = resolve('./src/templates/tutorial.js');
-  const homeTemplate = resolve('./src/templates/home.js');
+  // const tutorialTemplate = resolve('./src/templates/tutorial.js');
+  const homeTemplate = resolve('./src/pages/blog/all.html.js');
+  //  const homeTemplate = resolve('./src/templates/home.js');
 
   const allMarkdown = await graphql(
     `
@@ -59,7 +60,7 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
 
   allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
     const slug = edge.node.fields.slug;
-
+    console.log(slug)
     if (slug === '/index.html') {
       createPage({
         path: '/',
@@ -68,22 +69,19 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
           slug,
         },
       });
-    } else if (slug === 'docs/error-decoder.html') {
-      // No-op so far as markdown templates go.
-      // Error codes are managed by a page in src/pages
-      // (which gets created by Gatsby during a separate phase).
     } else if (
       slug.includes('blog/') ||
-      slug.includes('community/') ||
+      slug.includes('categories/') ||
       slug.includes('contributing/') ||
       slug.includes('docs/') ||
       slug.includes('tutorial/') ||
-      slug.includes('warnings/')
+      slug.includes('warnings/') ||
+      slug.includes('archive/')
     ) {
       let template;
       if (slug.includes('blog/')) {
         template = blogTemplate;
-      } else if (slug.includes('community/')) {
+      } else if (slug.includes('categories/')) {
         template = communityTemplate;
       } else if (
         slug.includes('contributing/') ||
@@ -91,8 +89,10 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
         slug.includes('warnings/')
       ) {
         template = docsTemplate;
-      } else if (slug.includes('tutorial/')) {
-        template = tutorialTemplate;
+      } else if (slug.includes('tutorial/') ||
+        slug.includes('archive/')
+      ) {
+        template = docsTemplate;
       }
 
       const createArticlePage = path =>
@@ -118,8 +118,8 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
           if (redirectToSlugMap[fromPath] != null) {
             console.error(
               `Duplicate redirect detected from "${fromPath}" to:\n` +
-                `* ${redirectToSlugMap[fromPath]}\n` +
-                `* ${slug}\n`,
+              `* ${redirectToSlugMap[fromPath]}\n` +
+              `* ${slug}\n`,
             );
             process.exit(1);
           }
@@ -173,13 +173,13 @@ exports.createPages = async ({graphql, boundActionCreators}) => {
 const BLOG_POST_FILENAME_REGEX = /([0-9]+)\-([0-9]+)\-([0-9]+)\-(.+)\.md$/;
 
 // Add custom fields to MarkdownRemark nodes.
-exports.onCreateNode = ({node, boundActionCreators, getNode}) => {
-  const {createNodeField} = boundActionCreators;
+exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
+  const { createNodeField } = boundActionCreators;
 
   switch (node.internal.type) {
     case 'MarkdownRemark':
-      const {permalink, redirect_from} = node.frontmatter;
-      const {relativePath} = getNode(node.parent);
+      const { permalink, redirect_from } = node.frontmatter;
+      const { relativePath } = getNode(node.parent);
 
       let slug = permalink;
 
@@ -241,8 +241,8 @@ exports.onCreateNode = ({node, boundActionCreators, getNode}) => {
   }
 };
 
-exports.onCreatePage = async ({page, boundActionCreators}) => {
-  const {createPage} = boundActionCreators;
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage } = boundActionCreators;
 
   return new Promise(resolvePromise => {
     // page.matchPath is a special key that's used for matching pages only on the client.

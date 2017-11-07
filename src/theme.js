@@ -27,20 +27,20 @@ const colors = {
   error: '#ff6464', // yellow
   white: '#ffffff',
   black: '#000000',
-  lightRed:'#f36'
+  lightRed: '#f36'
 };
 
 const SIZES = {
-  xsmall: {min: 0, max: 599},
-  small: {min: 600, max: 779},
-  medium: {min: 780, max: 979},
-  large: {min: 980, max: 1279},
-  xlarge: {min: 1280, max: 1339},
-  xxlarge: {min: 1340, max: Infinity},
+  xsmall: { min: 0, max: 599 },
+  small: { min: 600, max: 779 },
+  medium: { min: 780, max: 979 },
+  large: { min: 980, max: 1279 },
+  xlarge: { min: 1280, max: 1339 },
+  xxlarge: { min: 1340, max: Infinity },
 
   // Sidebar/nav related tweakpoints
-  largerSidebar: {min: 1100, max: 1339},
-  sidebarFixed: {min: 2000, max: Infinity},
+  largerSidebar: { min: 1100, max: 1339 },
+  sidebarFixed: { min: 2000, max: Infinity },
 };
 
 type Size = $Keys<typeof SIZES>;
@@ -83,10 +83,6 @@ const media = {
 
 const fonts = {
   header: {
-    fontSize: 60,
-    lineHeight: '65px',
-    fontWeight: 700,
-
     [media.lessThan('medium')]: {
       fontSize: 40,
       lineHeight: '45px',
@@ -95,8 +91,8 @@ const fonts = {
   small: {
     fontSize: 14,
   },
-  mid:{
-    fontSize:15
+  mid: {
+    fontSize: 15
   }
 };
 
@@ -104,13 +100,15 @@ const fonts = {
 // Except when they must be used within nested CSS selectors.
 // This is the case for eg markdown content.
 const linkStyle = {
-  backgroundColor: hex2rgba(colors.brandLight, 0.5),
-  borderBottom: `1px solid ${hex2rgba(colors.black, 0.2)}`,
-  color: colors.text,
-
+  //backgroundColor: hex2rgba(colors.brandLight, 0.5),
+  //borderBottom: `1px solid ${hex2rgba(colors.black, 0.2)}`,
+  color: '#2f7bbd',
+  transition: 'color .3s',
+  borderBottom: '1px dotted rgba(64, 153, 255, .6)',
   ':hover': {
-    backgroundColor: colors.brandLight,
-    borderBottomColor: colors.text,
+    //backgroundColor: colors.brandLight,
+    //borderBottomColor: colors.text,
+    color: '#f36'
   },
 };
 const sharedStyles = {
@@ -201,24 +199,39 @@ const sharedStyles = {
     '& a:not(.anchor):not(.gatsby-resp-image-link)': linkStyle,
 
     '& > p:first-child': {
-      fontSize: 18,
-      fontWeight: 300,
-      color: colors.subtle,
+      // fontSize: 15,
+      // color: colors.subtle,
 
-      [media.greaterThan('xlarge')]: {
-        fontSize: 24,
-      },
+      // [media.greaterThan('xlarge')]: {
+      //   fontSize: 16,
+      // },
 
-      '& a, & strong': {
-        fontWeight: 400,
-      },
+      // '& a, & strong': {
+      //   fontWeight: 600,
+      //   color: '#323a45'
+      // },
     },
-
+    '& table': {
+      margin: '10px auto',
+      '& th': {
+        fontSize: 15,
+        color: '#323a45',
+      },
+      '& td': {
+        padding: '10px'
+      }
+    },
+    '& strong': {
+      fontWeight: 600,
+      fontSize: 15,
+      color: '#323a45',
+    },
     '& p': {
       marginTop: 30,
-      fontSize: 17,
-      lineHeight: 1.7,
-      maxWidth: '42em',
+      color: '#333',
+      fontSize: 16,
+      lineHeight: 1.9,
+      // maxWidth: '42em',
 
       '&:first-of-type': {
         marginTop: 15,
@@ -239,11 +252,12 @@ const sharedStyles = {
     },
 
     '& p > code, & li > code': {
-      background: hex2rgba(colors.note, 0.3),
+      //background: hex2rgba(colors.note, 0.3),
       padding: '0 3px',
       fontSize: 'inherit',
-      color: colors.text,
+      //color: '#f36',
       wordBreak: 'break-word',
+      fontFamily: '"Open Sans", "open-sans", sans-serif'
     },
 
     '& hr': {
@@ -301,9 +315,10 @@ const sharedStyles = {
 
     '& h3': {
       paddingTop: 45,
-
+      color: '#323a45',
+      fontWeight: 600,
       [media.greaterThan('xlarge')]: {
-        fontSize: 25,
+        fontSize: 22,
         lineHeight: 1.3,
       },
     },
@@ -313,8 +328,8 @@ const sharedStyles = {
     },
 
     '& h4': {
-      fontSize: 20,
-      color: colors.subtle,
+      fontSize: 18,
+      color: '#323a45',
       lineHeight: 1.3,
       marginTop: 50,
       fontWeight: 400,
@@ -362,11 +377,13 @@ const sharedStyles = {
     },
 
     '& blockquote': {
-      backgroundColor: hex2rgba('#ffe564', 0.3),
-      borderLeftColor: colors.note,
-      borderLeftWidth: 9,
+      //backgroundColor: hex2rgba('#ffe564', 0.3),
+      borderLeftColor: '#333',
+      borderLeftWidth: 3,
       borderLeftStyle: 'solid',
-      padding: '20px 45px 20px 26px',
+      fontStyle: 'italic',
+      //padding: '20px 45px 20px 26px',
+      padding: '0 29px 0 20px',
       marginBottom: 30,
       marginTop: 20,
       marginLeft: -30,
@@ -381,8 +398,8 @@ const sharedStyles = {
         marginTop: 15,
 
         '&:first-of-type': {
-          fontWeight: 700,
-          marginTop: 0,
+          fontWeight: 400,
+          marginLeft: 7,
         },
 
         '&:nth-of-type(2)': {
@@ -397,4 +414,4 @@ const sharedStyles = {
   },
 };
 
-export {colors, fonts, media, sharedStyles};
+export { colors, fonts, media, sharedStyles };

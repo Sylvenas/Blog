@@ -1,54 +1,61 @@
 @font-face {
-  font-family: 'icomoon';
-  src:  url('../../static/fonts/icomoon.eot?86a4jt');
-  src:  url('../../static/fonts/icomoon.eot?86a4jt#iefix') format('embedded-opentype'),
-    url('../../static/fonts/icomoon.ttf?86a4jt') format('truetype'),
-    url('../../static/fonts/icomoon.woff?86a4jt') format('woff'),
-    url('../../static/fonts/icomoon.svg?86a4jt#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'icomoon';
+    src: url('../../static/fonts/icomoon.eot?86a4jt');
+    src: url('../../static/fonts/icomoon.eot?86a4jt#iefix') format('embedded-opentype'), url('../../static/fonts/icomoon.ttf?86a4jt') format('truetype'), url('../../static/fonts/icomoon.woff?86a4jt') format('woff'), url('../../static/fonts/icomoon.svg?86a4jt#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-google-plus:before {
-  content: "\e900";
+    content: "\e900";
+    color: #e36f60;
 }
+
 .icon-brand:before {
-  content: "\e901";
-  color: #d14836;
+    content: "\e901";
+    color: #d14836;
 }
+
 .icon-brand2:before {
-  content: "\e902";
-  color: #1da1f2;
+    content: "\e902";
+    color: #1da1f2;
 }
+
 .icon-twitter:before {
-  content: "\e902";
-  color: #1da1f2;
+    content: "\e902";
+    color: #1da1f2;
 }
+
 .icon-facebook:before {
-  content: "\ea90";
+    content: "\ea90";
+    color: #627aac;
 }
+
 .icon-sina-weibo:before {
-  content: "\ea9a";
+    content: "\ea9a";
 }
+
 .icon-github:before {
-  content: "\eab0";
-  color: #fff;
+    content: "\eab0";
+    color: #fff;
 }
+
 .icon-reddit:before {
-  content: "\eac6";
+    content: "\eac6";
+    color: #5f99cf;
 }
