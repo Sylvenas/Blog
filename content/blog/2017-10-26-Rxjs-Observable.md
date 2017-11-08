@@ -1,14 +1,14 @@
 ---
 title: "Rxjs Observable"
 author: [Sylvenas]
-categories: "Rxjss"
+categories: "Rxjs"
 img: './img/2017-10-26.jpeg'
 ---
 
 ### pull versus push
-*拉取* 和*推送* 是数据生产者和数据消费者之间进行通信的两种不同的机制。  
+*拉取* 和 *推送* 是数据生产者和数据消费者之间进行通信的两种不同的机制。  
 
-**What is pull?**在拉取体系中，总是由数据的消费者决定何时何地从生产者那里获取数据。生产者对数据何时何地传递给消费者和不知情，只是再被动的生产数据（数据是由消费者主动拉取的，数据生产者因为消费者的拉取数据而被动的生产数据）。     
+**What is pull?**在拉取体系中，总是由数据的消费者决定何时何地从生产者那里获取数据。生产者对数据何时何地传递给消费者毫不知情，只是在被动的生产数据（数据是由消费者主动拉取的，数据生产者因为消费者的拉取数据而被动的生产数据）。     
 
 每一个`JavaScript`函数都是一个拉取系统，函数是数据的生产者，函数的调用者调用函数之后，函数会返回调用者一值，也就是相当于，函数的调用者，从函数拉取的一个数据。
 
@@ -31,7 +31,7 @@ Rxjs为JavaScript引入了一个新的推送系统 -- **Observable**,`Observable
 - **Observable** 可以使用同步的方法计算结果，也可以通过异步的方法计算结果，并返回结果（可以是一个也可以是多个）
 
 ### Observable是函数概念的扩展
-`Observable`既不像`EventEmitter`,也不像`Promise`。Observable中的Subject进行多俗推送时与EventEmitter行为上有些类似，但是实际上Observable与EventEmitter并不相同。
+`Observable`既不像`EventEmitter`,也不像`Promise`。Observable中的Subject进行多路推送时与EventEmitter行为上有些类似，但是实际上Observable与EventEmitter并不相同。
 
 > Observable更像是一个不需要参数的函数，但是它拓展了函数的概念使得它可以返回多个值。
 
@@ -75,7 +75,7 @@ foo.subscribe(function (y) {
 "Hello"
 42
 ```
-Observable和函数都是在运行时进行求值运算的。如果不运行函数，`console.log('Hello')`就不会运行；如果不`subscribe`（订阅）Observable,`console.log(Hello)`也不会执行；函数的调用和对Observable的订阅都是互相独立的，函数的两次调用，会产生两个独立的作用域，两调用也会产生两个独立的作用域。
+Observable和函数都是在运行时进行求值运算的。如果不运行函数，`console.log('Hello')`就不会运行；如果不`subscribe`（订阅）Observable,`console.log('Hello')`也不会执行；函数的调用和对Observable的订阅都是互相独立的，函数的两次调用，会产生两个独立的作用域，对Observable的两次subscribe也会产生两个独立的作用域。
 
 > Subscribing to an Observable is analogous to calling a Function.（订阅一个Observable和调用一个函数，这两个行为很类似）
 
@@ -176,7 +176,7 @@ console.log('after');
 - `observable.subscribe()` 意味着 "*不管是同步还是异步的，给我一个或者多个值*"
 
 ### Observable详述
-Rxjs提供了一个工厂方法`Rx.Observable.create()`来`实例话`一个可观察对象（Observable）；Observable被Observe(观察者)`订阅`；在`执行`时可以调用观察者的`next`/`error`/`complete`方法；并且执行的过程可以被`终止`。
+Rxjs提供了一个工厂方法`Rx.Observable.create()`来`实例化`一个可观察对象（Observable）；Observable被Observe(观察者)`订阅`；在`执行`时可以调用观察者的`next`/`error`/`complete`方法；并且执行的过程可以被`终止`。
 
 Observable的核心内容为
 - **Createing** Observable
@@ -203,7 +203,7 @@ var observable = Rx.Observable.create(function subscribe(observer) {
 ``` js
 observable.subscribe(x => console.log(x));
 ```
-`observable.subscribe`和`Observable.create(function subscribe(bservableo){...}`中的subscribe同名并非巧合。虽然在Rxjs中它们并不是同一个对象，但是在工程中，我们可以在概念上视两者为等价物。
+`observable.subscribe`和`Observable.create(function subscribe(observer){...}`中的subscribe同名并非巧合。虽然在Rxjs中它们并不是同一个对象，但是在工程中，我们可以在概念上视两者为等价物。
 
 多个不同的Observer在订阅同一个Observable的时候，它们的subscribe都是不同的，当我们我们传入observer作为参数调用`observable.subscribe()`函数的时候，`Observable.create(function subscribe(observer)){...}`中`subscribe`函数的参数就是我们传入的observer，每一次`observable.sunscribe()`被调用的时候，都是互相独立，互不影响的。
 
@@ -258,7 +258,7 @@ var observable = Rx.Observable.create(function subscribe(observer) {
 
 #### Disposing Observable Executions
 ---
-Observable的执行可能是无限的，作为观察者可能需要**主动终止连接的契约**,我们需要特定的API去终止执行过程。因为特定的观察者都有特定的执行过程，一旦观察者获得想要的数据之后就需要终止执行过程以避免带来计算时对内存自选的浪费。
+Observable的执行可能是无限的，作为观察者可能需要**主动终止连接的契约**,我们需要特定的API去终止执行过程。因为特定的观察者都有特定的执行过程，一旦观察者获得想要的数据之后就需要终止执行过程以避免带来计算时对内存的浪费。
 
 在调用`observable.subscribe`方法时，会反悔一个`Subscription`对象
 ``` js

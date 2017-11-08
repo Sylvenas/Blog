@@ -27,7 +27,7 @@ input.addEventListener('input', function (event) {
 var h1 = document.querySelector('h1');
 h1.innerHTML = data;
 ```
-       
+
 
 ### 观察者模式
 ---  
@@ -49,7 +49,7 @@ h1.innerHTML = data;
     ``` js
     Observer.prototype.onNotify = function (data) {
         //调用真正的消费逻辑
-        this._consumer.call(this, data); 
+        this._consumer.call(this, data);
     };
     ```
 + 2.Observable 可观察对象
@@ -94,7 +94,7 @@ h1.innerHTML = data;
 **上面基于观察者模式实现的示例，全部的代码在完整的代码在[jsbin](https://jsbin.com/gopurogile/1/edit?html,js,output)**
 
 
-### Rxjs 
+### Rxjs
 ---        
 现在我们使用Rxjs来重写这个示例：     
 首先简单介绍一下Rxjs,Rxjs的全名为：**Reactive Extensions for JavaScript**,RxJS is a reactive streams library that allows you to work with *asynchronous data streams*. RxJS can be used both in the browser or in the server-side using Node.js.     
@@ -126,6 +126,4 @@ var observer = {
 observable.subscribe(observer);
 ```
 
-**短短几行代码，实现了和上面一样的逻辑，希望通过这个简单的例子，能让大家对Rxjs的核心思路有个基本的概念，上面的Rxjs实现的完整的例子在[jsbin](https://jsbin.com/pibalurexa/edit?html,js,output)**
-
-
+**短短几行代码，实现了和上面一样的逻辑，希望通过这个简单的例子，能让大家对Rxjs的核心思路有个基本的概念，上面的Rxjs实现的完整的例子在[jsbin](https://jsbin.com/pibalurexa/7/edit?html,js,output)**
