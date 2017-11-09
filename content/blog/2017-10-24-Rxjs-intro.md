@@ -39,12 +39,14 @@ h1.innerHTML = data;
 除此之外观察者模式明确定义了**可观察对象**和**观察者**之前的契约：每当**可观察对象**生成新的数据的时候，就调用**观察者预定义的数据接收接口**，然后观察者调用**自身的数据消费逻辑**。
 ![example](../images/pub-sub.jpeg)  
 + 1.Observer/观察者          
-   + 1.1出于扩展的考虑，我们将**数据的消费逻辑**封装到一个函数中：    
+   + 1.1出于扩展的考虑，我们将**数据的消费逻辑**封装到一个函数中：
+
     ``` js
     var Observer = function (consumer) {
         this._consumer = consumer;
     };
     ```
+    
     + 1.2观察者要实现一个**数据接收的接口**，例如：onNotify，**可观察对象**要调用这个接口来传递数据
     ``` js
     Observer.prototype.onNotify = function (data) {
