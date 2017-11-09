@@ -2,7 +2,7 @@
 title: "Rxjs Observer"
 author: [Sylvenas]
 categories: "Rxjs"
-img: './img/2017-10-26.jpeg'
+img: './img/2017-11-08.jpeg'
 ---
 
 ### Observer
