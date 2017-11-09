@@ -47,7 +47,8 @@ h1.innerHTML = data;
     };
     ```
     
-    + 1.2观察者要实现一个**数据接收的接口**，例如：onNotify，**可观察对象**要调用这个接口来传递数据
+    + 1.2观察者要实现一个**数据接收的接口**，例如：onNotify，**可观察对象**要调用这个接口来传递数据     
+
     ``` js
     Observer.prototype.onNotify = function (data) {
         //调用真正的消费逻辑
@@ -55,14 +56,16 @@ h1.innerHTML = data;
     };
     ```
 + 2.Observable 可观察对象
-    + 2.1一个**可观察对象要能生成数据**，我们把生成数据的逻辑封装到一个函数中，调用这个函数生成器，就能生成新的数据。
+    + 2.1一个**可观察对象要能生成数据**，我们把生成数据的逻辑封装到一个函数中，调用这个函数生成器，就能生成新的数据。    
+
     ``` js
     var Observable = function (generator) {
         //先保存生成器，当观测者连接时再执行
         this._generator = generator;
     };
     ```
-    + 2.2**可观察对象还需要提供一个方法供观察者连接**，当连接契约建立的时候，将观察者传入数据生成器。
+    + 2.2**可观察对象还需要提供一个方法供观察者连接**，当连接契约建立的时候，将观察者传入数据生成器。     
+
     ``` js
     Observable.prototype.subscribe = function (observer) {
         //将观察者传入数据生成器
@@ -71,7 +74,8 @@ h1.innerHTML = data;
     ```
     > 在数据生成器中调用观察者的onNotify方法，把新的数据传递给观察者.
 + 3.现在我们可以使用Observable类和Observer类来重写我们的input的示例
-    + 3.1 定义可观察对象
+    + 3.1 定义可观察对象     
+
     ``` js
     var generator = function (observer) {
         input.addEventListener('input', function (event) {
@@ -81,14 +85,16 @@ h1.innerHTML = data;
     };
     var inputStream = new Observable(generator);
     ```
-    + 3.2 定义观察者
+    + 3.2 定义观察者    
+
     ``` js
     var consumer = function (data) {
             h1.innerHTML = data;
     };
     var uiRefresher = new Observer(consumer);
     ```
-    + 3.3 建立连接契约
+    + 3.3 建立连接契约    
+
     ``` js
     inputStream.subscribe(uiRefresher);
     ```
@@ -106,14 +112,16 @@ Rxjs隶属是庞大的[ReactiveX](http://reactivex.io/)家族的一员,同样有
 </div>
 
 + Rx.Observable.fromEvent()      
-Rxjs提供了Rx.Observable.fromEvent()方法让我们从一个DOM事件，来实例化一个**Observable/可观察对象**。
+Rxjs提供了Rx.Observable.fromEvent()方法让我们从一个DOM事件，来实例化一个**Observable/可观察对象**。    
+
 ``` js
 var input = document.querySelector('input');
 var observable = Rx.Observable.fromEvent(input, 'input');
 ```
 + Observer       
-在Rxjs中**Observer/观察者**是一个由回调函数组成的对象，键名分别为`next`,`error`,`complete`, 值分别为三个函数，这三个属性并不是全部必须的。
-``` js
+在Rxjs中**Observer/观察者**是一个由回调函数组成的对象，键名分别为`next`,`error`,`complete`, 值分别为三个函数，这三个属性并不是全部必须的。   
+
+``` js    
 var h1 = document.querySelector('h1');
 var observer = {
     next: function (event) {
@@ -123,8 +131,9 @@ var observer = {
 };
 ```
 + subscribe()    
-和我们的示例一样，调用可观察对象的`subscribe`方法，来建立可观察对象和观察者之间契约。
-``` js
+和我们的示例一样，调用可观察对象的`subscribe`方法，来建立可观察对象和观察者之间契约。    
+
+``` js    
 observable.subscribe(observer);
 ```
 

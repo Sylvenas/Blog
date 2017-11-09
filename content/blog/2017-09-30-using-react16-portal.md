@@ -1,8 +1,8 @@
 ---
-title: "Using a React 16 Portal to do something cool"
+title: "Using React 16 Portal to do something cool"
 author: [Sylvenas]
 categories: "React"
-img: './img/2017-11-08.jpeg'
+img: './img/2017-09-30.jpeg'
 ---
 
 React最近发布了16.0版本,该版本中，主要新增了 `componentDidCatch`用来捕捉错误信息,`render return gragments or string`使得render方法，可以返回两种新的数据类型-数组和字符串,`custom DOM attributes`可以对原生的DOM元素添加自定义的属性,`Portals`可以让我们在组件的父组件之外渲染一个React Component。     
@@ -15,10 +15,10 @@ React最近发布了16.0版本,该版本中，主要新增了 `componentDidCatch
 
 下面的图片中，我有一个父页面(左侧)，里面包含一个计数器和一个红色的按钮，另外一个小的窗口(右侧)，包含几乎一样的内容，不过没有暂时没有`css`。     
 
-![example]()
+![example](../images/react16-cool.jpeg)
 
 上面例子中看到所有的内容都在一个Component中：      
-``` js {17,25,38,43}
+``` javascript{17,25,38,43}
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -77,7 +77,7 @@ class App extends React.PureComponent {
 2. 创建一个`Portal`并把`props.children`的内容添加到新的window的body中     
 
 请仔细看下面的代码：   
-``` js {5,11,16,19,25}
+``` js{5,11,16,19,24}
 class MyWindowPortal extends React.PureComponent {
   constructor(props) {
     super(props);

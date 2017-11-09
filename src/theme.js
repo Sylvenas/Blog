@@ -257,7 +257,8 @@ const sharedStyles = {
       fontSize: 'inherit',
       //color: '#f36',
       wordBreak: 'break-word',
-      fontFamily: '"Open Sans", "open-sans", sans-serif'
+      fontFamily: '"Open Sans", "open-sans", sans-serif',
+      background: 'rgba(0, 0, 0, .05)'
     },
 
     '& hr': {
