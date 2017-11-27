@@ -1,5 +1,5 @@
 ---
-title:  "Ajax call when session time out,redirect to login page"
+title:  "Ajax call when session time out"
 author: [Sylvenas]
 categories: 'http'
 img: './img/2013-03-25.jpeg'
