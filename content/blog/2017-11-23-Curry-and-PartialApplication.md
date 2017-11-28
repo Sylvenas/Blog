@@ -83,7 +83,7 @@ function constant(v) {
 p1.then( foo ).then( constant( p2 ) ).then( bar );
 ```
 
-### Some Now, Some Later and Partial Application 
+### Some Now, Some Later and Partial Application
 如果一个函数可以接收多个参数，你可能会想先指定部分参数，余下的参数稍后在指定，来看这个函数：
 ``` js
 function ajax(url,data,callback) {
@@ -103,7 +103,7 @@ function getPerson(data,cb) {
 function getOrder(data,cb) {
     ajax( "http://some.api/order", data, cb );
 }
-``` 
+```
 手动指定这些函数完全是有可能的，但是很明显这是个冗长乏味的过程，尤其是预设参数可能还会变化的情况，例如：
 ``` js
 function getCurrentUser(cb) {
@@ -137,7 +137,7 @@ var partial =
 我们创建并`return`了新的内部函数(为了清晰明了，我们把它命令为`partiallyApplied(...)`),该函数接收`laterArgs`数组
 作为稍后要传递的剩余参数。
 
-你注意到在`partiallyApplied(...)`函数内部的`fn`和`presetArgs`的引用了吗？它们是怎么工作的呢？在函数`partial(...)`执行结束之后，内部函数为何还能访问到`fn`和`presetArgs`?很明显，在JavaScript中这就是**闭包(closure)**.内部函数`partiallyApplied(...)`封闭了`fn`和`presetArgs`变量，所以无论该函数在哪里运行，我们都可以访问到这些变量。
+你注意到在`partiallyApplied(...)`函数内部的`fn`和`presetArgs`的引用了吗？它们是怎么工作的呢？在函数`partial(...)`执行结束之后，内部函数为何还能访问到`fn`和`presetArgs`?很明显，在JavaScript中这就是**闭包(closure)** .内部函数`partiallyApplied(...)`封闭了`fn`和`presetArgs`变量，所以无论该函数在哪里运行，我们都可以访问到这些变量。
 
 当`partiallyApplied(...)`函数稍后在某处执行时，该函数使用被闭包作用(closed over)的`fn`引用来执行原函数，首先传入(被闭包作用的)`presetArgs`数组中所有偏应用(partial application)实参，然后传入刚刚被传入的`laterArgs`数组中的实参。
 
@@ -189,6 +189,15 @@ function add(x, y) {
 
 ```
 
+#### bind(...)
+JavaScript函数有一个内置的`bind(..)`函数，该函数有两个功能：预设`this`关键字的上下文，一级偏应用实参。
+
+我认为将这两个功能混合进一个函数是非常糟糕的决定。有时候你不关心`this`的绑定，而只是要偏应用实参。在上面的例子中，如果我们要偏应用`url`:
+``` js
+var getPerson = ajax.bind( null, "http://some.api/person" );
+```
+>传递的第一个参数null,看上去是真的很糟糕
+
 ### One at a Time and Curry
 我们现在来看一个和偏应用(partial application)很类似的技术，该技术将一个期望接收多个参数的函数拆解城连续的链式函数(chained function)，每个链式函数只接收一个单一参数(function.length===1),并返回接收下一个参数的函数。
 
@@ -226,7 +235,7 @@ babyPanda('sloth');
 babyPanda('cat');
 // I love panda and cat  
 ```
-`babyAnimals`是一个柯里化的函数，它被设计成了在函数本身完全执行之前，第一个参数已经被**预填充**了,那么这样带来的显而易见的好处就是,`babyPanda`可以添加别的小动物，可以很方便的表达我除了对panda的爱之外对其他种类小动物的爱。
+`babyAnimals`是一个柯里化的函数，它被设计成了在函数本身完全执行之前，第一个参数已经被**预填充** 了,那么这样带来的显而易见的好处就是,`babyPanda`可以添加别的小动物，可以很方便的表达我除了对panda的爱之外对其他种类小动物的爱。
 
 currying不是原生的JavaScript提供的功能，但是我们可以编写一个(currier)函数把任何给定的函数转换为自己的curried版本，下面是一个简单的实现：
 ``` js{2,5,7,8}
@@ -306,7 +315,3 @@ console.log(
 首先是显而易见的理由，使用柯里化和便应用可以将指定分离的时机和地方独立开来，而传统的函数调用则需要预先确定所有的尸参。如果你在代码某一处只获取了部分实参，然后在另一处确定部分实参，这个时候柯里化和偏应用就能派上用场。
 
 另一个最能体现柯里化应用的是，当函数只有一个形参的时候，我么能够比较容易的组合它们。因此，如果一个函数最终需要三个实参，那么它被柯里化以后会变成需要三次调用，每次嗲用需要一个实参的函数。当我们组合函数的时候，这种单元函数的形式会让我们处理器来更简单。
-
-
-
-

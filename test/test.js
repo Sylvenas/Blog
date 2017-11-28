@@ -1,13 +1,10 @@
-let a = 1;
-const function1 = function () {
-  console.log(11, a);
-  a = 2
-  console.log(22, a)
-}
+const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x);
 
-a = 3;
-const function2 = function () {
-  console.log(33, a);
-}
-function1();
-function2();
+const fn1 = s => s.toLowerCase();
+const fn2 = s => s.split('').reverse().join('');
+const fn3 = s => s + '!'
+
+const newFunc = pipe(fn1, fn2, fn3);
+const result = newFunc('Time'); // emit!
+
+console.log(toSlug('JS Cheerleader')); // 'js-cheerleader'
