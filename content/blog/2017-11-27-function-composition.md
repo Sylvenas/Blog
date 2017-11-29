@@ -2,7 +2,8 @@
 title: "What is Function Composition?"
 author: [Sylvenas]
 categories: "functional"
-img: './img/2017-11-23.jpeg'
+img: './img/2017-11-27.jpeg'
+excerpt: '函数组合就是组合两到多个函数来生成一个新函数的过程。将函数组合在一起，就像将一连串管道扣合在一起，让数据流过一样。'
 ---
 **函数组合** 就是组合两到多个函数来生成一个新函数的过程。将函数组合在一起，就像将一连串管道扣合在一起，让数据流过一样。
 
