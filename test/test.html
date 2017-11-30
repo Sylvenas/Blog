@@ -118,7 +118,7 @@
         images.forEach((image, index) => {
             setTimeout(() => {
                 var elem = document.querySelector('.image' + (index + 1));
-                elem.style.backgroundImage = `url(data:image/jpeg;base64,${image})`;
+                elem.style.backgroundImage = `url(img.jpeg)`;
                 elem.classList.add('image--displayed');
             }, Math.random() * 2000 + 500)
         });
