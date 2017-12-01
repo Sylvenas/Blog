@@ -10,7 +10,7 @@ img: './img/2017-10-26.jpeg'
 
 **What is pull?**在拉取体系中，总是由数据的消费者决定何时何地从生产者那里获取数据。生产者对数据何时何地传递给消费者毫不知情，只是在被动的生产数据（数据是由消费者主动拉取的，数据生产者因为消费者的拉取数据而被动的生产数据）。     
 
-每一个`JavaScript`函数都是一个拉取系统，函数是数据的生产者，函数的调用者调用函数之后，函数会返回调用者一值，也就是相当于，函数的调用者，从函数拉取的一个数据。
+每一个`JavaScript`函数都是一个拉取系统，函数是数据的生产者，函数的调用者调用函数之后，函数会返回调用者一个值，也就是相当于，函数的调用者，从函数拉取的一个数据。
 
 ES2015新增的[generator functions and iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*),是另外一种拉取系统。方法的调用者调用`iterator.next()`可以从`iterators`（数据生产者）拉取多个值。
 

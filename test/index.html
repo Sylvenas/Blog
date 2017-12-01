@@ -6,12 +6,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .done {
+      color: rebeccapurple;
+    }
+  </style>
 </head>
 
 <body>
-  
-  <img width="640" height="640" src="example.jpg” alt="Add descriptive alt text" style="background-size: cover; background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAw…<stripped base 64>…PjwvZz48L3N2Zz4=);">
+  <div>
+    <input type="text" name="" id="" class="todo-val">
+    <input type="button" value="add" class="button-add">
+    <ul class="list-group"></ul>
+  </div>
+  <script src='https://unpkg.com/@reactivex/rxjs@5.5.2/dist/global/Rx.js'></script>
+  <script>
+    const $input = document.querySelector('.todo-val');
+    const $list = document.querySelector('.list-group');
+    const $add = document.querySelector('.button-add');
 
+    const createTodoItem = val => {
+      const result = document.createElement('li');
+      const innerHTML = `${val}<button type='button' class='button-remove'>delete</button>`;
+      result.innerHTML = innerHTML;
+      return result;
+    }
+
+    const clickAdd = Rx.Observable.fromEvent($add, 'click');
+
+    const enter = Rx.Observable.fromEvent($input, 'keydown')
+      .filter(e => e.keyCode === 13);
+
+    const input = enter.merge(clickAdd);
+
+    const items = input
+      .map(() => $input.value)
+      .filter(val => val != '')
+      .map(createTodoItem)
+      .do(ele => {
+        $list.appendChild(ele);
+        $input.value = '';
+      })
+      .publishReplay(1)
+      .refCount();
+
+    const toggle = items.mergeMap($todoItem => Rx.Observable.fromEvent($todoItem, 'click')
+      .filter(e => e.target === $todoItem)
+      .mapTo($todoItem))
+      .do($todoItem => $todoItem.classList.contains('done') ? $todoItem.classList.remove('done') : $todoItem.classList.add('done'))
+
+    const remove = items.mergeMap($todoItem => Rx.Observable.fromEvent($todoItem.querySelector('.button-remove'), 'click').mapTo($todoItem))
+      .do($todoItem => {
+        const $parent = $todoItem.parentNode;
+        $parent.removeChild($todoItem)
+      })
+
+    const app = toggle.merge(remove)
+      .do(r => console.log(r))
+
+    app.subscribe();
+  </script>
 </body>
 
 </html>

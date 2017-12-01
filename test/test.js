@@ -1,5 +1,7 @@
-const secret = function (msg) {
-    return function () {
-        return msg
+function getDataP(){
+    if(a){
+        return Promise.resolve(a);
+    }else{
+        return Ajax.get('a');
     }
 }

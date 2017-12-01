@@ -28,14 +28,13 @@ var h1 = document.querySelector('h1');
 h1.innerHTML = data;
 ```
 
-
-### 观察者模式
----  
+### 观察者模式  
 现在我们使用观察者模式来重写这个例子：   
-在观察者模式中，我们总结出的三个基本概念都有了正式的概念：   
+在观察者模式中，我们总结出的三个基本概念都有了正式的定义：   
 + 数据提供者：可观察对象／Observable
 + 数据：通知／Notification
 + 数据消费者：观察者／Observer     
+
 除此之外观察者模式明确定义了**可观察对象**和**观察者**之前的契约：每当**可观察对象**生成新的数据的时候，就调用**观察者预定义的数据接收接口**，然后观察者调用**自身的数据消费逻辑**。
 ![example](../images/pub-sub.jpeg)  
 + 1.Observer/观察者          
@@ -102,14 +101,11 @@ h1.innerHTML = data;
 **上面基于观察者模式实现的示例，全部的代码在完整的代码在[jsbin](https://jsbin.com/gopurogile/1/edit?html,js,output)**
 
 
-### Rxjs
----        
+### Rxjs        
 现在我们使用Rxjs来重写这个示例：     
 首先简单介绍一下Rxjs,Rxjs的全名为：**Reactive Extensions for JavaScript**,RxJS is a reactive streams library that allows you to work with *asynchronous data streams*. RxJS can be used both in the browser or in the server-side using Node.js.     
 Rxjs隶属是庞大的[ReactiveX](http://reactivex.io/)家族的一员,同样有RxJava,RxSwift等等。
-<div style="text-align:center;" align="center">
-  <img style="height:200px;" src="{{ site.url }}/img/Rxjs/ReactiveX.jpeg" />
-</div>
+![ReactiveX](../images/ReactiveX.jpeg)
 
 + Rx.Observable.fromEvent()      
 Rxjs提供了Rx.Observable.fromEvent()方法让我们从一个DOM事件，来实例化一个**Observable/可观察对象**。    
@@ -137,4 +133,4 @@ var observer = {
 observable.subscribe(observer);
 ```
 
-**短短几行代码，实现了和上面一样的逻辑，希望通过这个简单的例子，能让大家对Rxjs的核心思路有个基本的概念，上面的Rxjs实现的完整的例子在[jsbin](https://jsbin.com/pibalurexa/7/edit?html,js,output)**
+**短短几行代码，实现了和上面一样的逻辑，希望通过这个简单的例子，能让大家对Rxjs的核心思路有个基本的概念，上面的Rxjs实现的完整的例子在[jsbin](https://jsbin.com/rasesupapa/edit?html,js,output)**
