@@ -2,7 +2,7 @@
 title: "Why Learn FP in JavaScript?"
 author: [Sylvenas]
 categories: "composing software"
-img: './img/2017-12-10.jpg'
+img: './img/2017-12-24.jpeg'
 ---
 
 请忘掉你认为你知道的有关JavaScript的任何东西，以初学者的心态来接触这份资料。为帮助你这样做，我们打算从头开始复习JavaScript的基础知识，就像你以前从来没有看到过JavaScript一样。如果你是已经熟悉JavaScript或者纯函数式语言的老手，也许你会认为用JavaScript来探究函数式编程就是个笑话。请把你的这些想法放一边，尝试用新的心态来接触这份博客。你可能会发现这是另一种思路的JavaScript编程。

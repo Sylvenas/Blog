@@ -2,7 +2,7 @@
 title: "rise and fall of functional programming"
 author: [Sylvenas]
 categories: "composing software"
-img: './img/2017-12-10.jpg'
+img: './img/2017-12-16.jpeg'
 ---
 
 我 6 岁的时候，花了很多时间与最好的哥们一起玩电脑游戏。他家里有一个满是电脑的房间。它们对于我来说是无法抵御的、神奇的。我花了很多时间探索所有游戏。有一天我问我哥们，“我们做一个游戏怎么样？”。
