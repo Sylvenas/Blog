@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .drag-circle {
+            transform: .5s transform ease-out;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #bcbcbc;
+            position: absolute;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="drag-circle">hello</div>
+    <script src='https://unpkg.com/@reactivex/rxjs@5.5.2/dist/global/Rx.js'></script>
+    <script>
+        const box = document.querySelector('.drag-circle');
+        const mouseDown$ = Rx.Observable.fromEvent(box, 'mousedown')
+        const mouseMove$ = Rx.Observable.fromEvent(document, 'mousemove')
+        const mouseUp$ = Rx.Observable.fromEvent(document, 'mouseup')
+
+        mouseDown$.map(event => ({
+            pos: getTranslate(box),
+            event,
+        }))
+            .switchMap((initialState) => {
+                const initialPos = initialState.pos
+                const { clientX, clientY } = initialState.event
+                return mouseMove$.map(moveEvent => ({
+                    x: moveEvent.clientX - clientX + initialPos.x,
+                    y: moveEvent.clientY - clientY + initialPos.y,
+                }))
+                    .takeUntil(mouseUp$)
+            })
+            .subscribe((pos) => {
+                setTranslate(box, pos)
+            })
+
+        function setTranslate(element, pos) {
+            element.style.transform = `translate(${pos.x}px, ${pos.y}px)`
+        }
+
+        function getTranslate(element) {
+            const style = getComputedStyle(element)
+            const regExp = /matrix\((\d+,\s){4}(\d+),\s(\d+)/i
+            const result = style.transform.match(regExp)
+            if (result) {
+                return {
+                    x: parseInt(result[2], 10),
+                    y: parseInt(result[3], 10)
+                }
+            } else {
+                return {
+                    x: 0,
+                    y: 0
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

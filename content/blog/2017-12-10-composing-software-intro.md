@@ -3,6 +3,7 @@ title: "composing software introduction"
 author: [Sylvenas]
 categories: "composing software"
 img: './img/2017-12-10.jpg'
+excerpt: '在我高中第一节程序设计课上，我被告知软件开发是"将复杂问题转化为较小问题，并组合简单的解决方案并形成完整的解决方案以解决复杂的问题的行为"。'
 ---
 
 在我高中第一节程序设计课上，我被告知软件开发是"将复杂问题转化为较小问题，并组合简单的解决方案并形成完整的解决方案以解决复杂的问题的行为"。
@@ -54,7 +55,6 @@ wait(300)
   .then(g)
   .then(f)
   .then(value => console.log(value)) // 42
-;
 ```
 同样，每次链接数组方法调用、lodash方法、observable(Rxjs等)，都是组合函数。如果你正在使用方法链，就是在组合函数。如果将返回值传递给其他函数，那么就是在组合。如果在一个序列中调用两个方法，就是使用`this`为输入数据来组合。
 
