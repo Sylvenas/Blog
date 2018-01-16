@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		class State {
+			constructor(initVal) {
+				this.shareState = {
+					val: initVal
+				};
+			}
+			getVal() {
+				return this.shareState.val;
+			}
+			addVal(newVal) {
+				return new State(this.shareState.val + newVal)
+			}
+			mulVal(newVal) {
+				return new State(this.shareState.val * newVal)
+			}
+		}
+		var state = new State(2);
+
+		setTimeout(() => {
+			let res = state.addVal(3)
+			console.log('加法： ' + res.getVal())
+		}, Math.random() * 2000);
+
+
+		setTimeout(() => {
+			let res = state.mulVal(2)
+			console.log('乘法： ' + res.getVal())
+		}, Math.random() * 2000);
+
+	</script>
+</body>
+
+</html>
