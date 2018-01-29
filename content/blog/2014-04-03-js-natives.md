@@ -1,5 +1,5 @@
 ---
-title:  "JS单线程异步的背后-事件循环机制"
+title:  "JS内置对象理解"
 author: [sylvenas]
 categories: 'JavaScript'
 img: './img/2013-06-12.jpeg'
