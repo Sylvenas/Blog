@@ -26,7 +26,7 @@ var utils = {
 ### JS面向对象单例模式
 #### 饿汉模式
 上面的代码我们是直接创建了一个对象字面量来确保只有一个`utils`的实例，那么如何实现面向对象式的单例模式呢，例如我们每个公司只能有一个CEO,那么这段代码可以这样写：
-``` js {10,13}
+``` js{10,13}
 var getCEO = (function () {
 	var instance;
 	var createCEO = function () {
@@ -48,7 +48,7 @@ var getCEO = (function () {
 
 但是这个思路有个缺点就是不管我们会不会用到这个`instance`,都会事先创建`instance`对象，消耗一定的内存，那么可不可以在当我们需要的时候在创建这个`instance`呢
 #### 懒汉模式
-``` js {12}
+``` js{12}
 var getCEO = (function () {
 	var instance;
 	var createCEO = function () {
