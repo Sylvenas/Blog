@@ -13,7 +13,7 @@ const Resume = () => {
                 <p className='resume-p'>Mello is a holy buddhist, a husband. He lives in HangZhou, ZheJiang with his wife Tyran.</p>
                 <img src={love} className='resume-love' />
                 <p className='resume-p'>
-                    Mello is currently a Fontend developer engineer and manager of the Fontend Platform team at
+                    Mello is currently a Frontend developer engineer and manager of the Fontend Platform team at
                     <a href='http://netease.com' target='_blank'> NetEase</a>. He originally joined the Listings team at NetEase in Apr 2017, tasked to revamp the event details pages from an archaic MySpace-style design to a modern, fully responsive layout.
                 </p>
             </div>
