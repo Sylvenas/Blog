@@ -48,7 +48,7 @@ console.log(Animal.prototype.__proto__ === Object.prototype)  // true
 
 * 构造函数`Animal`除了是方法，它也是个对象啊，它也有`__proto__`属性，指向`Animal`的构造函数`Function`的原型对象`Function.prototype`。(`Animal.__proto__ === Function.prototype`)。
 
-* 构造函数`Animal`的原型属性`Animal.prototype`也是对象，那么`Animal.prototype.__proto__`又指向哪里呢，很明显指向`Animal.prototype`的构造函数的原型`Object.prototype`。(`console.log(Animal.prototype.__proto__ === Object.prototype)`)。
+* 构造函数`Animal`的原型属性`Animal.prototype`也是对象，那么`Animal.prototype.__proto__`又指向哪里呢，很明显指向`Animal.prototype`的构造函数的原型`Object.prototype`。(`Animal.prototype.__proto__ === Object.prototype`)。
 
 总结：
 * 对象有属性`__proto__`,指向该对象的构造函数的原型对象。
