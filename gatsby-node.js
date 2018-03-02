@@ -60,7 +60,6 @@ exports.createPages = async ({ graphql, boundActionCreators }) => {
 
   allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
     const slug = edge.node.fields.slug;
-    console.log(slug)
     if (slug === '/index.html') {
       createPage({
         path: '/',

@@ -20,7 +20,7 @@ import toCommaSeparatedList from 'utils/toCommaSeparatedList';
 import { sharedStyles } from 'theme';
 import createOgUrl from 'utils/createOgUrl';
 
-import type {Node } from 'types';
+import type { Node } from 'types';
 
 type Props = {
   authors: Array<string>,
@@ -47,7 +47,6 @@ const MarkdownPage = ({
 }: Props) => {
   const hasAuthors = authors.length > 0;
   const titlePrefix = markdownRemark.frontmatter.title || '';
-  console.log(markdownRemark)
   return (
     <Flex
       direction="column"

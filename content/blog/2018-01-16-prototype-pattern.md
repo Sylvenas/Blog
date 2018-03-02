@@ -48,11 +48,15 @@ console.log(Animal.prototype.__proto__ === Object.prototype)  // true
 
 * 构造函数`Animal`除了是方法，它也是个对象啊，它也有`__proto__`属性，指向`Animal`的构造函数`Function`的原型对象`Function.prototype`。(`Animal.__proto__ === Function.prototype`)。
 
-* 构造函数`Animal`的原型属性`Animal.prototype`也是对象，那么`Animal.prototype.__proto__`又指向哪里呢，很明显指向`Animal.prototype`的构造函数的原型`Object.prototype`。(`Animal.prototype.__proto__ === Object.prototype`)。
+* 构造函数`Animal`的原型属性`Animal.prototype`也是对象，那么`Animal.prototype.__proto__`又指向哪里呢，很明显指向`Animal.prototype`的构造函数的原型对象`Object.prototype`。(`Animal.prototype.__proto__ === Object.prototype`)。
 
 总结：
 * 对象有属性`__proto__`,指向该对象的构造函数的原型对象。
 * 方法除了有`__proto__`还有属性`prototype`,`prototype`指向该方法的原型对象。
+
+原型链也会有终点，终点就在`Object.prototype.__proto__ === null`，那么既然`Object.prototype`也是一个对象，那么`Object.prototype.__proto__`就应该指向`Object.prototype`,不过很遗憾，尽管`Object.prototype`也是一个对象，但是这个对象却不是由`Object`构造函数所创建的，而是有JS引擎(eg:V8)按照ECMAScript规范创建的。
+
+原型链有一个例外就是，`Function`的原型指向`Function`的原型对象，也就是`Function.__proto__ === Function.prototype`。这是一个[鸡生蛋，蛋生鸡](http://www.ecma-international.org/ecma-262/5.1/#sec-15%EF%BC%8C_%E9%B8%A1%E5%92%8C%E8%9B%8B_%E7%9A%84%E9%97%AE%E9%A2%98%E5%B0%B1%E6%98%AF%E8%BF%99%E4%B9%88%E5%87%BA%E7%8E%B0%E5%92%8C%E8%AE%BE%E8%AE%A1%E7%9A%84%EF%BC%9A**%60Function%60%E7%BB%A7%E6%89%BF%60Function%60%E6%9C%AC%E8%BA%AB%EF%BC%8C%60Function.prototype%60%E7%BB%A7%E6%89%BF%60Object.prototype%60%E3%80%82)的过程,说不清楚，还是看看规范吧。
 
 #### 实现继承
 现在我们有一个子构造函数`Dog`,它啥都没有，需要让它的实例继承`Animal`的所有属性和方法

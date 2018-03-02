@@ -24,7 +24,6 @@ type Props = {
 };
 
 const AllBlogPosts = ({ data }: Props) => {
-    console.log(data.allMarkdownRemark.edges)
     return (<div css={{
         [media.greaterThan('medium')]: {
             width: '90%',

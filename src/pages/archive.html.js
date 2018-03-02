@@ -10,7 +10,7 @@ import { colors, media, sharedStyles } from 'theme';
 import toCommaSeparatedList from 'utils/toCommaSeparatedList';
 import MetaTitle from 'templates/components/MetaTitle';
 
-import type {allMarkdownRemarkData } from 'types';
+import type { allMarkdownRemarkData } from 'types';
 
 type Props = {
     data: allMarkdownRemarkData,
@@ -23,7 +23,6 @@ const AllBlogPosts = ({ data }: Props) => {
 
 
     var edges = data.allMarkdownRemark.edges;
-    //console.log(edges)
     edges.forEach(edge => {
         var col = {};
         var year = edge.node.fields.date.split(',')[1];
@@ -34,7 +33,6 @@ const AllBlogPosts = ({ data }: Props) => {
         collections[year] ? collections[year].push(col) : (collections[year] = [], collections[year].push(col));
     })
     years = Object.keys(collections);
-    //console.log(collections)
     return (
         <Container css={{
             position: 'relative'
