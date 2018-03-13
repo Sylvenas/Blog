@@ -11,7 +11,7 @@ import Flex from 'components/Flex';
 import React from 'react';
 import { colors, fonts, media } from 'theme';
 
-const MarkdownHeader = ({ title, imgUrl, authors, date }: { title: string, imgUrl: string }) => (
+const MarkdownHeader = ({ title, authors, date }: { title: string }) => (
   <Flex type="header" halign="space-between" valign="baseline">
     <div css={{
       position: 'relative',

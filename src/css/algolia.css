@@ -384,7 +384,7 @@
 
     .algolia-autocomplete .algolia-docsearch-suggestion--text {
         display: block;
-        line-height: 1.2em;
+        line-height: 1.5em;
         font-size: 0.85em;
         color: #63676D;
         padding-right: 2px;

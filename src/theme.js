@@ -333,7 +333,7 @@ const sharedStyles = {
       color: '#323a45',
       lineHeight: 1.3,
       marginTop: 50,
-      fontWeight: 400,
+      fontWeight: 500,
     },
 
     '& h4 + p': {
@@ -349,7 +349,7 @@ const sharedStyles = {
       '& p, & p:first-of-type': {
         fontSize: 16,
         marginTop: 0,
-        lineHeight: 1.2,
+        lineHeight: 1.9,
       },
 
       '& li': {

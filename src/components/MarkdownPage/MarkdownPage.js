@@ -65,7 +65,7 @@ const MarkdownPage = ({
         title={`${titlePrefix}${titlePostfix}`}
       />
       <div css={{ flex: '1 0 auto' }}>
-        <MarkdownHeader title={titlePrefix} imgUrl={markdownRemark.frontmatter.img} authors={authors} date={date} />
+        <MarkdownHeader title={titlePrefix} authors={authors} date={date} />
         <Container>
           <div css={sharedStyles.articleLayout.container}>
             <Flex type="article" direction="column" grow="1" halign="stretch">

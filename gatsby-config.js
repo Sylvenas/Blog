@@ -22,7 +22,7 @@ module.exports = {
     'gatsby-plugin-netlify',
     'gatsby-plugin-glamor',
     'gatsby-plugin-react-next',
-    'gatsby-plugin-twitter',
+    //'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
@@ -69,12 +69,12 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-41298772-1',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-google-analytics',
+    //   options: {
+    //     trackingId: 'UA-41298772-1',
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-feed',
       options: {

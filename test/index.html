@@ -65,10 +65,21 @@
       .do(r => console.log(r))
 
     app.subscribe();
+
+    /*
+  * @params {HTMLElement} el
+  */
+    function isElementInViewport(el) {
+      var rect = el.getBoundingClientRect();
+
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
   </script>
 </body>
 
 </html>
-
-1571711451
-hhhh0707
