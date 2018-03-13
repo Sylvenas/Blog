@@ -81,7 +81,7 @@ class AllBlogs extends Component {
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 
         //通过判断滚动条的top位置与可视网页之和与整个网页的高度是否相等来决定是否加载内容；
-        if (scrollTop + clientHeight >= htmlHeight - 500) {
+        if (scrollTop + clientHeight >= htmlHeight - 600) {
             if (this.state.flag * 6 >= this.props.data.allMarkdownRemark.edges.length) {
                 this.setState({
                     noMore: true
@@ -100,7 +100,6 @@ class AllBlogs extends Component {
         event.target.style.opacity = 1;
     }
     render() {
-        console.log(this.state.showBlogs)
         return (<div css={{
             [media.greaterThan('medium')]: {
                 width: '90%',
