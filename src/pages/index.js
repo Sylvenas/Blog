@@ -263,7 +263,6 @@ export const pageQuery = graphql`
             categories
             img
             excerpt
-            base64
           }
           fields {
             date(formatString: "MMMM DD, YYYY")
