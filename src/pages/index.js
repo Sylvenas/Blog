@@ -50,23 +50,25 @@ class AllBlogs extends Component {
         super();
         this.state = {
             flag: 1,
-            noMore: ''
+            noMore: '',
+            showBlogs: []
         }
         this.handleImgLoad = this.handleImgLoad.bind(this);
         this.handleDocScroll = this.handleDocScroll.bind(this);
         this.handleDocScroll = debounce(this.handleDocScroll, 500);
+        this.smImgs = new Map();
     }
     componentWillMount() {
         this.props.data.allMarkdownRemark.edges.forEach(item => {
             item.node.imgName = item.node.frontmatter.img.substring(6, 16);
             item.node.imgType = item.node.frontmatter.img.substring(17)
         })
-        this.setState({
-            showBlogs: this.props.data.allMarkdownRemark.edges.slice(0, 6)
-        })
     }
     componentDidMount() {
         document.addEventListener('scroll', this.handleDocScroll, passiveEvent)
+        this.setState({
+            showBlogs: this.props.data.allMarkdownRemark.edges.slice(0, 6)
+        })
     }
     componentWillUnmount() {
         document.removeEventListener('scroll', this.handleDocScroll)
@@ -95,9 +97,12 @@ class AllBlogs extends Component {
         }
 
     }
-    handleImgLoad(event) {
-        this.img.style.opacity = 0;
-        event.target.style.opacity = 1;
+    handleImgLoad(index) {
+        const that = this;
+        return function (event) {
+            that.smImgs.get(index).style.opacity = 0;
+            event.target.style.opacity = 1;
+        }
     }
     render() {
         return (<div css={{
@@ -130,105 +135,110 @@ class AllBlogs extends Component {
                             display: 'flex',
                             flexWrap: 'wrap',
                         }}>
-                        {this.state.showBlogs.map(({ node }) => (
-                            <li
-                                css={{
-                                    width: '100%',
-                                    minHeight: 500,
-                                    [media.size('medium')]: {
-                                        width: '50%',
-                                    },
+                        {this.state.showBlogs.map((item, i) => {
+                            const node = item.node;
+                            return (
+                                <li
+                                    css={{
+                                        width: '100%',
+                                        minHeight: 500,
+                                        [media.size('medium')]: {
+                                            width: '50%',
+                                        },
 
-                                    [media.greaterThan('large')]: {
-                                        width: '30.303%',
-                                        float: 'left',
-                                        margin: '0 1.515% 1.875em'
-                                    },
-                                }}
-                                key={node.fields.slug + node.fields.date}>
-                                <Link
-                                    to={node.fields.slug}>
-                                    <div css={{ height: 250, width: '100%', overflow: 'hidden', position: 'relative' }}>
-                                        <img
-                                            src={`/svg/${node.imgName}.svg`}
-                                            css={{
-                                                minHeight: '250px',
-                                                maxWidth: '100%',
-                                                position: 'relative',
-                                                transition: 'opacity .3s'
-                                            }}
-                                            ref={img => { this.img = img }} />
-                                        <picture>
-                                            <source media="(min-width: 900px)"
-                                                srcSet={`/img/${node.imgName}_lg_1x.webp 1x,/img/${node.imgName}_lg_2x.webp 2x`} type="image/webp" />
-                                            <source media="(max-width: 900px)"
-                                                srcSet={`/img/${node.imgName}_md_1x.webp 1x,/img/${node.imgName}_md_2x.webp 2x`} type="image/webp" />
-                                            <img srcSet={`
-                                                        /img/${node.imgName}_md_1x.${node.imgType} 900w,
-                                                        /img/${node.imgName}_lg_1x.${node.imgType} 1440w`}
-                                                src={`/img/${node.imgName}_lg_1x.${node.imgType} 1440w`}
-                                                type={`image/${node.imgType}`}
-                                                onLoad={this.handleImgLoad}
-                                                alt="image"
+                                        [media.greaterThan('large')]: {
+                                            width: '30.303%',
+                                            float: 'left',
+                                            margin: '0 1.515% 1.875em'
+                                        },
+                                    }}
+                                    key={node.fields.slug + node.fields.date}>
+                                    <Link
+                                        to={node.fields.slug}>
+                                        <div css={{ height: 250, width: '100%', overflow: 'hidden', position: 'relative' }}>
+                                            <img
+                                                src={`/svg/${node.imgName}.svg`}
                                                 css={{
                                                     minHeight: '250px',
-                                                    width: '100%',
-                                                    position: 'absolute',
-                                                    top: 0,
-                                                    left: 0,
-                                                    opacity: 0,
+                                                    maxWidth: '100%',
+                                                    position: 'relative',
                                                     transition: 'opacity .3s'
                                                 }}
-                                                description='true' />
-                                        </picture>
-                                    </div>
-                                </Link>
-                                <h2 css={{
-                                    fontFamily: '"brandon-grotesque", sans-serif',
-                                    fontSize: 10,
-                                    letterSpacing: '.1em',
-                                    color: '#7e8890',
-                                    textTransform: 'uppercase',
-                                    fontWeight: 700,
-                                    marginBottom: 15,
-                                    marginTop: 44,
-                                    textAlign: 'center',
-                                    cursor: 'pointer',
-                                    ':hover': {
-                                        color: '#323a45'
-                                    }
-                                }}><a href={`/categories.html#${node.frontmatter.categories}`}>{node.frontmatter.categories ? node.frontmatter.categories : ''}</a></h2>
-                                <Link
-                                    to={node.fields.slug}>
-                                    <h1 css={{
+                                                ref={img => { this.smImgs.set(i, img) }}
+                                            />
+                                            <picture>
+                                                <source media="(min-width: 900px)"
+                                                    srcSet={`/img/${node.imgName}_lg_1x.webp 1x,/img/${node.imgName}_lg_2x.webp 2x`} type="image/webp" />
+                                                <source media="(max-width: 900px)"
+                                                    srcSet={`/img/${node.imgName}_md_1x.webp 1x,/img/${node.imgName}_md_2x.webp 2x`} type="image/webp" />
+                                                <img
+                                                    onLoad={this.handleImgLoad(i)}
+                                                    srcSet={`
+                                                        /img/${node.imgName}_md_1x.${node.imgType} 900w,
+                                                        /img/${node.imgName}_lg_1x.${node.imgType} 1440w`}
+                                                    src={`/img/${node.imgName}_lg_1x.${node.imgType} 1440w`}
+                                                    type={`image/${node.imgType}`}
+                                                    alt="image"
+                                                    css={{
+                                                        minHeight: '250px',
+                                                        width: '100%',
+                                                        position: 'absolute',
+                                                        top: 0,
+                                                        left: 0,
+                                                        opacity: 0,
+                                                        transition: 'opacity .3s'
+                                                    }}
+                                                    description='true' />
+                                            </picture>
+                                        </div>
+                                    </Link>
+                                    <h2 css={{
                                         fontFamily: '"brandon-grotesque", sans-serif',
-                                        fontSize: 18,
-                                        lineHeight: '27px',
-                                        letterSpacing: '.065em',
-                                        color: '#fc3768',
+                                        fontSize: 10,
+                                        letterSpacing: '.1em',
+                                        color: '#7e8890',
                                         textTransform: 'uppercase',
                                         fontWeight: 700,
-                                        maxWidth: 270,
-                                        margin: '0 auto',
+                                        marginBottom: 15,
+                                        marginTop: 44,
                                         textAlign: 'center',
                                         cursor: 'pointer',
                                         ':hover': {
-                                            color: '#b1032e',
-                                        },
-                                    }}>{node.frontmatter.title}</h1>
-                                </Link>
-                                <p css={{
-                                    fontSize: 14,
-                                    lineHeight: '27px',
-                                    color: '#333c4e',
-                                    padding: '0 25px',
-                                    textAlign: 'center',
-                                    marginTop: '30px',
-                                    width: '85%',
-                                    margin: '40px auto',
-                                }}>{node.excerpt.length < 10 ? node.frontmatter.excerpt : node.excerpt}</p>
-                            </li>
-                        ))}
+                                            color: '#323a45'
+                                        }
+                                    }}><a href={`/categories.html#${node.frontmatter.categories}`}>{node.frontmatter.categories ? node.frontmatter.categories : ''}</a></h2>
+                                    <Link
+                                        to={node.fields.slug}>
+                                        <h1 css={{
+                                            fontFamily: '"brandon-grotesque", sans-serif',
+                                            fontSize: 18,
+                                            lineHeight: '27px',
+                                            letterSpacing: '.065em',
+                                            color: '#fc3768',
+                                            textTransform: 'uppercase',
+                                            fontWeight: 700,
+                                            maxWidth: 270,
+                                            margin: '0 auto',
+                                            textAlign: 'center',
+                                            cursor: 'pointer',
+                                            ':hover': {
+                                                color: '#b1032e',
+                                            },
+                                        }}>{node.frontmatter.title}</h1>
+                                    </Link>
+                                    <p css={{
+                                        fontSize: 14,
+                                        lineHeight: '27px',
+                                        color: '#333c4e',
+                                        padding: '0 25px',
+                                        textAlign: 'center',
+                                        marginTop: '30px',
+                                        width: '85%',
+                                        margin: '40px auto',
+                                    }}>{node.excerpt.length < 10 ? node.frontmatter.excerpt : node.excerpt}</p>
+                                </li>
+                            )
+                        })}
                     </ul>
                     {this.state.noMore ? <div css={{
                         fontSize: 14,
