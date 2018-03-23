@@ -27,7 +27,7 @@ const debounce = (fn, wait) => {
     let timeout = null;
     return function () {
         if (timeout !== null) {
-            clearInterval(timeout)
+            setTimeout(timeout)
         }
         timeout = setTimeout(fn, wait)
     }
