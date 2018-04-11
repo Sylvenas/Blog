@@ -19,8 +19,8 @@ import MetaTitle from 'templates/components/MetaTitle';
 
 /**
  * 函数防抖，滚动事件结束之后，在执行
- * @param {Function} fn 
- * @param {Number} wait 
+ * @param {Function} fn
+ * @param {Number} wait
  * @returns {Function}
  */
 const debounce = (fn, wait) => {
@@ -148,7 +148,8 @@ class AllBlogs extends Component {
 
                                         [media.greaterThan('large')]: {
                                             width: '30.303%',
-                                            float: 'left',
+                                            //float: 'left',
+                                            display:'inline-block',
                                             margin: '0 1.515% 1.875em'
                                         },
                                     }}
@@ -269,7 +270,7 @@ export const pageQuery = graphql`
           excerpt
           frontmatter {
             title
-            author 
+            author
             categories
             img
             excerpt
