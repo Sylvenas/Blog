@@ -1,32 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--The viewport meta tag is used to improve the presentation and behavior of the samples 
+    on iOS devices-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <title></title>
+
     <style>
-        .clearFloat:after {
-            clear: both;
-            content: ".";
-            display: block;
-            height: 0;
-            visibility: hidden;
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            height: 100px;
+            width: 100%;
+            background-color: gainsboro;
+        }
+
+        .footer {
+            height: 100px;
+            width: 100%;
+            background-color: gainsboro;
+            /* clear: both; */
+        }
+
+        .container {
+            overflow: hidden;
+            padding-left: 200px;
+            padding-right: 150px;
+        }
+
+        .main {
+            background: lavenderblush;
+            float: left;
+            width: 100%;
+            height: 200px;
+        }
+
+        .left {
+            background: goldenrod;
+            float: left;
+            width: 200px;
+            margin-left: -100%;
+            position: relative;
+            right: 200px;
+            height: 400px;
+        }
+
+        .right {
+            background: darkgrey;
+            float: left;
+            width: 150px;
+            margin-right: -100%;
         }
     </style>
 </head>
 
 <body>
-    <div style="border:4px solid blue;" class='clearFloat'>
-        <div style="width:200px;border:4px solid yellow;float:left;">
-            我是浮动元素1
-        </div>
-        <div style="width:200px;border:4px solid yellow;float:left;">
-            我是浮动元素2
-        </div>
+    <header class='header'>这是header</header>
+    <div class="container">
+        <div class='main'>main</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
     </div>
-    <div style="border:4px solid gray;">我是页脚</div>
+    <footer class='footer'>这是footer</footer>
 </body>
 
 </html>
