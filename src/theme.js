@@ -258,7 +258,9 @@ const sharedStyles = {
       //color: '#f36',
       wordBreak: 'break-word',
       fontFamily: '"Open Sans", "open-sans", sans-serif',
-      background: 'rgba(0, 0, 0, .05)'
+      background: 'rgba(0, 0, 0, .05)',
+      margin: '0 3px',
+      borderRadius: '3px'
     },
 
     '& hr': {
