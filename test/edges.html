@@ -5,41 +5,35 @@
   <meta charset="utf-8">
   <title></title>
   <style>
-    /* input:link {
-      color: navy
-    } */
-
-    input:focus {
-      color: gray
+    a:link {
+      color: blue
     }
 
-    input:hover {
+    a:visited {
+      color: purple
+    }
+
+    a:hover {
       color: red
     }
 
-    input:active {
-      color: rgb(131, 131, 40)
+    a:active {
+      color: orange
+    }
+
+    .h1 {
+      color: red;
+    }
+
+    .h1-oth {
+      color: blue;
     }
   </style>
 </head>
 
 <body>
-  <button> dasdasd</button>
-
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-  <script>
-    document.querySelector('button').onclick = function open() {
-      axios.get('https://unpkg.com/axios/dist/axios.min.js').then(res => {
-        var a = document.createElement("a"); //创建a对象
-        a.setAttribute("href", 'www.baidu.com');
-        a.setAttribute("target", "_blank");
-        a.setAttribute("id", "camnpr");
-        document.body.appendChild(a);
-        a.click(); //执行当前对象
-      })
-    }
-  </script>
+  <h1 class='h1 h1-oth'>hello</h1>
+  <h1 class='h1-oth h1'>hello</h1>
 </body>
 
 </html>
