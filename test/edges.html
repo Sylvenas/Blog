@@ -5,44 +5,26 @@
   <meta charset="utf-8">
   <title></title>
   <style>
-    /* input:link {
-      color: navy
-    } */
-
-    input:focus {
-      color: gray
+    .div1 {
+      font-size: 20px;
+      width: 400px;
+      height: 200px;
+      background-color: aquamarine;
     }
 
-    input:hover {
-      color: red
-    }
-
-    input:active {
-      color: rgb(131, 131, 40)
+    .div2 {
+      height:50%;
+      width: 50%;
+      background: gold;
     }
   </style>
 </head>
 
 <body>
-  <div style='font-size:10px'>
-    <h1>adsasdasd</h1>
+  <div class='div1'>
+    div1
+    <div class='div2'>div2</div>
   </div>
-  <button> dasdasd</button>
-
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
-  <script>
-    document.querySelector('button').onclick = function open() {
-      axios.get('https://unpkg.com/axios/dist/axios.min.js').then(res => {
-        var a = document.createElement("a"); //创建a对象
-        a.setAttribute("href", 'www.baidu.com');
-        a.setAttribute("target", "_blank");
-        a.setAttribute("id", "camnpr");
-        document.body.appendChild(a);
-        a.click(); //执行当前对象
-      })
-    }
-  </script>
 </body>
 
 </html>
