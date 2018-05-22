@@ -5,25 +5,39 @@
   <meta charset="utf-8">
   <title></title>
   <style>
+    *{
+      margin:0;
+    }
+    .container{
+      position: relative;
+      top:100px;
+      left:100px;
+      border:1px red solid;
+    }
     .div1 {
       font-size: 20px;
       width: 400px;
       height: 200px;
       background-color: aquamarine;
+      margin-top: -50px;
     }
 
     .div2 {
       height:50%;
       width: 50%;
       background: gold;
+      margin-top:-10px;
     }
   </style>
 </head>
 
 <body>
-  <div class='div1'>
-    div1
-    <div class='div2'>div2</div>
+  <div style='background:red;height:auto'>
+    <p style='margin-top:2em;margin-bottom:2em;background:blue;'>fsdfsdfsdf</p>
+  </div>
+
+  <div style='background:red;height:auto;border-top:1px solid;border-bottom:1px solid;'>
+    <p style='margin-top:2em;margin-bottom:2em;background:blue;'>fsdfsdfsdf</p>
   </div>
 </body>
 
