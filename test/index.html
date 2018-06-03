@@ -10,14 +10,32 @@
     .done {
       color: rebeccapurple;
     }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .div {
+      position: relative;
+      left: 200px;
+      top: 200px;
+      width: 400px;
+      height: 400px;
+      background: yellow
+    }
+
+    p {
+      width: 200px;
+      height: 200px;
+      background-color: aqua
+    }
   </style>
 </head>
 
 <body>
-  <div>
-    <input type="text" name="" id="" class="todo-val">
-    <input type="button" value="add" class="button-add">
-    <ul class="list-group"></ul>
+  <div class='div'>
+    <p></p>
   </div>
   <script src='https://unpkg.com/@reactivex/rxjs@5.5.2/dist/global/Rx.js'></script>
   <script>
