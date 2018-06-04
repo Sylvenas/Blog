@@ -180,7 +180,10 @@ const sharedStyles = {
 
   markdown: {
     lineHeight: '25px',
-
+    'p > img': {
+      display: 'inlineblock',
+      margin: '0 auto'
+    },
     '& .gatsby-highlight': {
       marginTop: 25,
       marginLeft: -30,
