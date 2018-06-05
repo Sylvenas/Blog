@@ -96,12 +96,12 @@ img: './img/2018-02-24.jpeg'
 ### Resources
 More info on negative margins.
 
-* Search This, The Positive Side of Negative Margins
-* Severn Solutions, CSS Negative Margins Algebra
-* A List Apart, Creating Liquid Layouts with Negative Margins
-* W3.org, Margin Properties
-* Branbell, Using Negative Margins
-* devarticles, Swapping Column Positions in Web Page Layouts with Negative Margins
-* Simplebits, Exceptionally Negative
-* brunildo, Horizontal Negative Margins
-* Ben Nadel, Negative CSS Margins Are Not Cool
+* Search This, [The Positive Side of Negative Margins](http://www.search-this.com/2007/08/01/the-positive-side-of-negative-margins/)
+* Severn Solutions, [CSS Negative Margins Algebra](http://www.severnsolutions.co.uk/twblog/archive/2004/07/01/cssnegativemarginsalgebra)
+* A List Apart, [Creating Liquid Layouts with Negative Margins](http://www.alistapart.com/articles/negativemargins/)
+* W3.org, [Margin Properties](http://www.w3.org/TR/1998/REC-CSS2-19980512/box.html#margin-properties)
+* Branbell, [Using Negative Margins](http://www.brainbell.com/tutorials/HTML_and_CSS/Using_Negative_Margins.htm)
+* devarticles, [Swapping Column Positions in Web Page Layouts with Negative Margins](http://www.devarticles.com/c/a/Web-Style-Sheets/Swapping-Column-Positions-in-Web-Page-Layouts-with-Negative-Margins/)
+* Simplebits, [Exceptionally Negative](http://www.simplebits.com/notebook/2005/05/23/negative.html)
+* brunildo, [Horizontal Negative Margins](http://www.brunildo.org/test/NegMOutH.html)
+* Ben Nadel, [Negative CSS Margins Are Not Cool](http://www.bennadel.com/blog/1174-Negative-CSS-Margins-Are-Not-Cool.htm)
