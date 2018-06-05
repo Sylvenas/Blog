@@ -324,7 +324,7 @@ const sharedStyles = {
       color: '#323a45',
       fontWeight: 600,
       [media.greaterThan('xlarge')]: {
-        fontSize: 22,
+        fontSize: 18,
         lineHeight: 1.3,
       },
     },
@@ -334,7 +334,7 @@ const sharedStyles = {
     },
 
     '& h4': {
-      fontSize: 18,
+      fontSize: 16,
       color: '#323a45',
       lineHeight: 1.3,
       marginTop: 50,
