@@ -2,7 +2,7 @@
 title:  "Ajax call when session time out"
 author: [Sylvenas]
 categories: 'http'
-img: './img/2013-03-25.jpeg'
+img: './img/2015-03-25.jpg'
 ---
 ### 1.问题重新
 通过ajax请求后端数据的时候，如果后端返回的状态吗是302，则约定为登陆过期，需要跳转到登录页，重新登录，前端代码如下：

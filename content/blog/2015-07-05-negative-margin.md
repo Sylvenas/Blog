@@ -2,7 +2,7 @@
 title: "negative margin"
 author: [Sylvenas]
 categories: "CSS"
-img: './img/2018-02-24.jpeg'
+img: './img/2015-07-05.jpeg'
 ---
 作为前端开发人员，我们都在使用margin,不过在使用负margin的时候，有时候会变得非常的头疼，有些人认为负margin是常规武器，有些人确认为负margin是魔鬼的代名词。
 

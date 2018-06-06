@@ -2,7 +2,7 @@
 title:  "How To Keep Your Footer At The Bottom Of The Page With CSS"
 author: [sylvenas]
 categories: 'CSS'
-img: './img/2013-06-12.jpeg'
+img: './img/2015-06-07.jpeg'
 ---
 如何将`footer`固定在底部是一个非常经典的问题，这个问题 **乍看起来非常简单**，但是实际上相当棘手，在所有的"隐蔽大坑"的难题中，简直就是教科书一般的存在。
 

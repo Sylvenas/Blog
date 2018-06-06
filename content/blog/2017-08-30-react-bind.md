@@ -2,7 +2,7 @@
 title:  "React Bind"
 author: [sylvenas]
 categories: 'React'
-img: './img/2017-10-25.jpeg'
+img: './img/2017-08-30.jpeg'
 ---
 
 在应用react开发中，大家经常遇到各种this的问题，其中最常见的情况，也是很多新手容易些的代码([在线地址](https://stackblitz.com/edit/react-lczb2u?embed=1&file=index.js))是：

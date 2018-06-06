@@ -2,7 +2,7 @@
 title:  "JS内置对象理解"
 author: [sylvenas]
 categories: 'JavaScript'
-img: './img/2013-06-12.jpeg'
+img: './img/2014-04-03.jpg'
 ---
 JavaScript有很多个内置对象，像是String,Number这类，我们深入了解一下内置对象，下面列出JS中常见的内置对象。
 * String

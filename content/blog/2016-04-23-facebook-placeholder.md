@@ -2,7 +2,7 @@
 title:  "facebook placeholder"
 author: [sylvenas]
 categories: 'CSS'
-img: './img/2013-06-12.jpeg'
+img: './img/2016-04-23.jpeg'
 ---
 偶然间看到facebook的网页版和手机版在网速比较慢的时候，都会有一个`loading`的过程，但是这个loading,完全不同于一般的一个小圈圈在页面上转，而是如下的一个`占位`+`动画`：
 <div style="text-align:center;margin-top:20px" align="center">

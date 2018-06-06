@@ -2,7 +2,7 @@
 title:  "CSS实现元素水平垂直居中"
 author: [sylvenas]
 categories: 'CSS'
-img: './img/2013-06-12.jpeg'
+img: './img/2014-12-17.jpg'
 ---
 ### 水平居中
 
