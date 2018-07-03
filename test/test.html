@@ -15,34 +15,26 @@
 </head>
 
 <body>
-    <img src="htdfsfsdf" alt="" class='big-img'>
-
-    <picture style="padding-bottom: 56.23333333333328%;">
-        <img src="https://qzprod.files.wordpress.com/2018/03/ap_17162770351982-e1520487757701.jpg?quality=80&amp;strip=all&amp;w=50"
-            class="progressive-image-thumbnail" onload="smLoad()">
-        <img sizes="(max-width: 320px) 320px, (max-width: 640px) 640px, (max-width: 940px) 940px, 100vw" class="progressive-image-large"
-            alt="AP Photo/Paul Sakluma, File" title="" srcset="https://qzprod.files.wordpress.com/2018/03/ap_17162770351982-e1520487757701.jpg?quality=80&amp;strip=all&amp;w=320 320w, 
-                https://qzprod.files.wordpress.com/2018/03/ap_17162770351982-e1520487757701.jpg?quality=80&amp;strip=all&amp;w=640 640w, 
-                https://qzprod.files.wordpress.com/2018/03/ap_17162770351982-e1520487757701.jpg?quality=80&amp;strip=all&amp;w=940 940w, 
-                https://qzprod.files.wordpress.com/2018/03/ap_17162770351982-e1520487757701.jpg?quality=80&amp;strip=all&amp;w=1600 1600w, 
-                https://qzprod.files.wordpress.com/2018/03/ap_17162770351982-e1520487757701.jpg?quality=80&amp;strip=all&amp;w=3200 3200w"
-            src="https://qzprod.files.wordpress.com/2018/03/ap_17162770351982-e1520487757701.jpg?quality=80&amp;strip=all&amp;w=3000"
-            onload="lgLoad()">
-        <noscript>
-            <img itemprop="image" src="https://qzprod.files.wordpress.com/2018/03/ap_17162770351982-e1520487757701.jpg?quality=80&amp;strip=all&amp;w=3000"
-                alt="FILE - In this July 10, 2012 file photo, Uber CEO and co-founder Travis Kalanick arrives at a conference
-            in Sun Valley, Idaho. The New York Times and other media are reporting Sunday, June 11, 2017, that Uber&amp;#039;s
-            board is considering placing Kalanick, the CEO of the ride-hailing company, on leave. (AP Photo/Paul Sakluma,
-            File)" title="">
-        </noscript>
-    </picture>
+    <script src="https://cdn.bootcss.com/underscore.js/1.9.0/underscore-min.js"></script>
     <script>
-        function smLoad() {
-            console.log('sm image Loaded')
+        function fnull(fun) {
+            var defaults = _.rest(arguments);
+            return function () {
+                var args = _.map(arguments, function (e, i) {
+                    return e ? e : defaults[i];
+                })
+
+                return fun.apply(null, args)
+            }
         }
-        function lgLoad() {
-            console.log('lg image Loaded')
-        }
+
+        const nums = [1, 0, 2, 3, null, undefined, 5];
+
+        var safeMult = fnull(function (total, n) { return total * n }, 1, 1);
+
+        const result = _.reduce(nums, safeMult);
+
+        console.log(result);
     </script>
 </body>
 
