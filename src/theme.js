@@ -338,7 +338,7 @@ const sharedStyles = {
       color: '#323a45',
       lineHeight: 1.3,
       marginTop: 50,
-      fontWeight: 500,
+      // fontWeight: 500,
     },
     '& h5': {
       fontSize: 16,
