@@ -215,13 +215,19 @@ const sharedStyles = {
       // },
     },
     '& table': {
-      margin: '10px auto',
+      //margin: '10px',
+      borderCollapse: 'collapse',
+      borderSpacing: 0,
       '& th': {
         fontSize: 15,
         color: '#323a45',
+        background: '#F3F3F3',
+        border: '1px solid #E6E6E6',
+        padding: '5px 8px'
       },
       '& td': {
-        padding: '10px'
+        border: '1px solid #E6E6E6',
+        padding: '5px 8px'
       }
     },
     '& strong': {
