@@ -2,7 +2,7 @@
 title:  "arrow function this"
 author: [sylvenas]
 categories: 'JavaScript'
-img: './img/2017-10-03.jpeg'
+img: './img/2017-10-23.jpeg'
 ---
 ES6中值得称赞的特性之一就是提供函数表达式缩写定义的箭头函数语法。你很难发现关于ES6（或者甚至甚少与其相关的）的一篇文章、会议演讲或者书都没有首要介绍`=>`是新的`function`。
 

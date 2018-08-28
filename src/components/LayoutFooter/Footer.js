@@ -65,7 +65,7 @@ const Footer = ({ layoutHasSidebar = false }) => (
               paddingTop: 40,
             },
           }}>
-          Ask me anything!
+          {/* Ask me anything!
             <a
             css={{
               marginLeft: 20,
@@ -86,7 +86,7 @@ const Footer = ({ layoutHasSidebar = false }) => (
             target="_blank"
             href={`https://github.com/lit-forest/lit-forest.github.io/issues/new`}>
             Issues
-            </a>
+            </a> */}
           <p
             css={{
               color: '#fff',

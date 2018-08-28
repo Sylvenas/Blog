@@ -53,6 +53,6 @@ Object.prototype.toString.call('build-in type');   //=> "[object String]"
 ### Unboxing
 既然能装箱，必然也有拆箱的方法，那就是调用`valueOf()`这个函数，可以将一个内置对象的primitive值取出。
 ``` js
-valueOf(new String('abc')); // 'abc'
+new String('abc').valueOf(); // 'abc'
 ```
 这是一种显式的拆箱方法。
