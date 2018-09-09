@@ -13,9 +13,9 @@ img: './img/2018-01-16.jpeg'
 
 如果没有，那么继续查找该对象的构造函数的构造函数的原型上是否有`fn`属性，也就是查找`obj.__proto__.__proto__.fn`上是否存在;
 
-这个过程就叫做遍历原型链，直到原型链的顶端，也就是`Object.prototype`,而`Object`对象的原型指向为`null`(`Object.getPrototypeOf(Object.prototype) === null`),根据定义，null没有原型,作为原型链的最后一个环节，如果整个原型链上都找不到，那么返回'undefined'。
+这个过程就叫做遍历原型链，直到原型链的顶端，也就是`Object.prototype`,而`Object`对象的原型指向为`null`，(`Object.getPrototypeOf(Object.prototype) === null`),根据定义，null没有原型,作为原型链的最后一个环节，如果整个原型链上都找不到，那么返回'undefined'。
 
-上面描述的整个链状向上遍历的关系，就叫做原型链，JavaScript正是基于这个特性实现的`继承`(我认为在JavaScript中叫`组合`更为合理)。
+上面描述的整个链状向上遍历的关系，就叫做原型链，JavaScript正是基于这个特性实现的`“继承”`(我认为在JavaScript中叫`组合`更为合理)。
 
 #### 举例说明
 当我们有一个构造函数`Animal`,它的原型属性`Animal.prototype`上存在一个方法`move`

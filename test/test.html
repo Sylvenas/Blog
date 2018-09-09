@@ -17,24 +17,9 @@
 <body>
     <script src="https://cdn.bootcss.com/underscore.js/1.9.0/underscore-min.js"></script>
     <script>
-        function fnull(fun) {
-            var defaults = _.rest(arguments);
-            return function () {
-                var args = _.map(arguments, function (e, i) {
-                    return e ? e : defaults[i];
-                })
-
-                return fun.apply(null, args)
-            }
+        function newObject(Constructor){
+          let obj=Object
         }
-
-        const nums = [1, 0, 2, 3, null, undefined, 5];
-
-        var safeMult = fnull(function (total, n) { return total * n }, 1, 1);
-
-        const result = _.reduce(nums, safeMult);
-
-        console.log(result);
     </script>
 </body>
 

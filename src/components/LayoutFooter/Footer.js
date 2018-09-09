@@ -65,7 +65,7 @@ const Footer = ({ layoutHasSidebar = false }) => (
               paddingTop: 40,
             },
           }}>
-          Ask me anything!
+            Ask me anything!
             <a
             css={{
               marginLeft: 20,
