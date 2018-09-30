@@ -30,7 +30,7 @@ const Hello = ({ name }) => {
 }
 ```
 
-#### Class Component 
+#### Class Component
 类组件比函数式组件有更多的功能，与此同时而来的类组件也有更多的弊端(此处体现了任何事物都有两面性的哲学观点)，使用类组件的主要优势在于他们可以拥有内部的`state`
 ![函数式组件](../images/React-Class-Component.jpg)
 ``` js
@@ -38,7 +38,7 @@ class Hello extends React.Component {
     constructor(props) {
         super(props);
     }
-     
+
     render() {
         return(
             <div>
@@ -82,11 +82,11 @@ class App extends Component {
   }
   */  
   state = { count: 1 };
-   
+
   handleCount(value) {
       this.setState((prevState) => ({count: prevState.count+value}));
   }
- 
+
   render() {
     // omitted for brevity
   }
