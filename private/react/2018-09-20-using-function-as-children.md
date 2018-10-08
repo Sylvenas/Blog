@@ -73,12 +73,12 @@ class LoadContent extends Component {
 </LoadContent>
 ```
 ### Render Props
-上面的例子中，可以把函数作为children传递，然后调用children(),同样的我们可以在props中传递函数，在组件内部决定怎么使用该props。举例来说：
+上面的例子中，可以把函数作为children传递，然后调用`children()`,同样的我们可以在props中传递函数，在组件内部决定怎么使用该props。举例来说：
 ``` js
  render() {
     return (
       <div>
-        <ComplexList 
+        <ComplexList
           data={["1", "2", "3", "4"]}
           renderHeader={({ loading }) => <span>{loading}</span>}
           renderListItem={(item) => <div>{item}</div>}
@@ -110,30 +110,30 @@ class ComplexList extends Component {
 }
 ```
 
-通过props传递渲染的函数，可以让我们自由的定义子组件的展示逻辑和展示样式，这是一种很强大的组件组合的方式，很多react ui库都是采用的这种方式，来提供给用户自定义数据展现方式，例如[ant-design](https://ant.design/components/table-cn/#components-table-demo-jsx)的table组件。
+通过props传递渲染的函数，可以让我们自由的定义子组件的展示逻辑和展示样式，这是一种很强大的组件组合的方式，很多react ui库都是采用的这种方式，来提供给用户自定义数据展现方式，例如[ant-design](https://ant.design/components/table-cn/#components-table-demo-jsx)的`Table`组件。
 
 上述的两种方式可以结合起来使用就是：
 ``` js
 render() {
   <LoadContent url="https://yourendpoint.com">
-  {
-    ({ loading, error, data }) => {
+    {
+      ({ loading, error, data }) => {
 
-      if (loading) return <span>Loading...</span>
-      if (error) return <span>Error loading</span>
+        if (loading) return <span>Loading...</span>
+        if (error) return <span>Error loading</span>
 
-      return (
-        <ComplexList 
-          data={data}
-          renderHeader={() => <span>{loading ? "Loading..." : "Header Content" }</span>}
-          renderListItem={(item) => <div>{item}</div>}
-        >
-          <div>We have {data.length} items</div>
-        </ComplexList>
-      )
+        return (
+          <ComplexList
+            data={data}
+            renderHeader={() => <span>{loading ? "Loading..." : "Header Content" }</span>}
+            renderListItem={(item) => <div>{item}</div>}
+          >
+            <div>We have {data.length} items</div>
+          </ComplexList>
+        )
+      }
     }
-  }
-</LoadContent>
+  </LoadContent>
 }
 ```
 

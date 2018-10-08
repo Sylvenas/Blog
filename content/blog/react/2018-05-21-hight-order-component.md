@@ -158,4 +158,4 @@ function HOC(InnerComponent){
   }
 }
 ```
-这种使用方式甚至可以通过`super.render()`获取到`InnerComponent`的elemen tree,配合`React.cloneElement`方法，继而可以对tree进行编辑，删除等等(注意不要修改共享状态，尽量使用纯函数)，不过这种实现高阶组件的方式，在React社区不是特别的流行，不做过多介绍
+这种使用方式甚至可以通过`super.render()`获取到`InnerComponent`的`element tree`,配合`React.cloneElement`方法，继而可以对tree进行编辑，删除等等(注意不要修改共享状态，尽量使用纯函数)，不过这种实现高阶组件的方式，在React社区不是特别的流行，不做过多介绍
