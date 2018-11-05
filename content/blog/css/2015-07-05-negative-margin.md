@@ -64,7 +64,7 @@ img: './img/2015-07-05.jpeg'
 
 ### negative margin的实际应用场景
 #### 去除列表的右边框
-![网易严选官网](../images/negative-margin-yanxuan.png)
+![网易严选官网](../../images/negative-margin-yanxuan.png)
 上面的图片是典型的电商网站的商品展示页面，一般的HTML结构如下
 ``` html
 <div class="container">

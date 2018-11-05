@@ -10,7 +10,7 @@ img: './img/2018-03-06.jpeg'
 placeholder也分为很多类型，常见的有：
 
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/placeholders.png" />
+  <img style="height:200px;" src="../../images/placeholders.png" />
 </div>
 
 * 使用一片空白占位：这样可以在图像还没有加载出来的时候出现页面塌陷和跳动，不仅用户体验比较差，性能上会导致浏览器的重绘

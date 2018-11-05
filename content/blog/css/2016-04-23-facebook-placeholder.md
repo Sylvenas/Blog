@@ -6,14 +6,14 @@ img: './img/2016-04-23.jpeg'
 ---
 偶然间看到facebook的网页版和手机版在网速比较慢的时候，都会有一个`loading`的过程，但是这个loading,完全不同于一般的一个小圈圈在页面上转，而是如下的一个`占位`+`动画`：
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/facebook-placeholder.gif" />
+  <img style="height:200px;" src="../../images/facebook-placeholder.gif" />
 </div>
 
 经过在一番搜索和实践之后，找到了两种常见的实现方法：
 ### 空余background方法
 先看一下效果，可以完美的实现和facebook一样的效果：  
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/facebook-placeholder.gif" />
+  <img style="height:200px;" src="../../images/facebook-placeholder.gif" />
 </div>
 看看代码：
 ``` html
@@ -181,7 +181,7 @@ img: './img/2016-04-23.jpeg'
 ### 纯background动画
 先看一下效果：
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/facebook-placeholder-02.gif" />
+  <img style="height:200px;" src="../../images/facebook-placeholder-02.gif" />
 </div>
 
 看看代码实现：

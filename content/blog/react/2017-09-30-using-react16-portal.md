@@ -15,7 +15,7 @@ React最近发布了16.0版本,该版本中，主要新增了 `componentDidCatch
 
 下面的图片中，我有一个父页面(左侧)，里面包含一个计数器和一个红色的按钮，另外一个小的窗口(右侧)，包含几乎一样的内容，不过没有暂时没有`css`。     
 
-![example](../images/react16-cool.jpeg)
+![example](../../images/react16-cool.jpeg)
 
 上面例子中看到所有的内容都在一个Component中：      
 ``` javascript{17,25,38,43}

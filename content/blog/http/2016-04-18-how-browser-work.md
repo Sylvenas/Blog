@@ -37,7 +37,7 @@ img: './img/2016-04-18.jpeg'
 * 数据存储 - 这是持久层。浏览器需要在硬盘上保存各种数据，例如 Cookie。新的 HTML 规范 (HTML5) 定义了“网络数据库”，这是一个完整（但是轻便）的浏览器内数据库。
 
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/browser-layers.png" />
+  <img style="height:200px;" src="../../images/browser-layers.png" />
 </div>  
 
 值得注意的是，和大多数浏览器不同，Chrome 浏览器的每个标签页都分别对应一个呈现引擎实例。每个标签页都是一个独立的进程。
@@ -57,7 +57,7 @@ WebKit 是一种开放源代码呈现引擎，起初用于 Linux 平台，随后
 然后进行如下所示的基本流程：
 
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/browser-flow.png" />
+  <img style="height:200px;" src="../../images/browser-flow.png" />
 </div>
 
 呈现引擎将开始解析 HTML 文档，并将各标记逐个转化成 **内容树** 上的 DOM 节点。同时也会解析外部 CSS 文件以及样式元素中的样式数据。HTML 中这些带有视觉指令的样式信息将用于创建另一个树结构：**呈现树**。
@@ -69,7 +69,7 @@ WebKit 是一种开放源代码呈现引擎，起初用于 Linux 平台，随后
 需要着重指出的是，这是一个渐进的过程。为达到更好的用户体验，呈现引擎会力求尽快将内容显示在屏幕上。它不必等到整个 HTML 文档解析完毕之后，就会开始构建呈现树和设置布局。在不断接收和处理来自网络的其余内容的同时，呈现引擎会将部分内容解析并显示出来。
 下面是WebKit内核浏览器的主流程示例：
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/browser-webkitflow.png" />
+  <img style="height:200px;" src="../../images/browser-webkitflow.png" />
 </div>
 
 #### 解析的基本流程
@@ -84,7 +84,7 @@ WebKit 是一种开放源代码呈现引擎，起初用于 Linux 平台，随后
 `语法分析`是应用语言的语法规则的过程。
 解析器通常将解析工作分给以下两个组件来处理：`词法分析器`（有时也称为标记生成器），负责将输入内容分解成一个个有效标记；而`解析器`负责根据语言的语法规则分析文档的结构，从而构建`解析树`。词法分析器知道如何将无关的字符（比如空格和换行符）分离出来。
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/browser-lexical.png" />
+  <img style="height:200px;" src="../../images/browser-lexical.png" />
 </div>
 
 解析是一个迭代的过程。通常，解析器会向词法分析器请求一个新标记，并尝试将其与某条语法规则进行匹配。如果发现了匹配规则，解析器会将一个对应于该标记的节点添加到解析树中，然后继续请求下一个标记。
@@ -93,7 +93,7 @@ WebKit 是一种开放源代码呈现引擎，起初用于 Linux 平台，随后
 
 很多时候，`解析树`还不是最终产品。解析通常是在`翻译`过程中使用的，而`翻译`是指将输入文档转换成另一种格式。编译就是这样一个例子。编译器可将源代码编译成机器代码，具体过程是`首先将源代码解析成解析树，然后将解析树翻译成机器代码文档`。
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/browser-translate.png" />
+  <img style="height:200px;" src="../../images/browser-translate.png" />
 </div>
 
 #### 处理脚本和样式表的顺序
@@ -111,7 +111,7 @@ WebKit 是一种开放源代码呈现引擎，起初用于 Linux 平台，随后
 如果`script`标签设置了该属性，则浏览器会异步的下载该文件并且不会影响到后续DOM的渲染；如果有多个设置了`defer`的script标签存在，则会按照顺序执行所有的script；`defer`脚本会在文档渲染完毕后，`DOMContentLoaded`事件调用前执行。、
 
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/script-async.jpeg" />
+  <img style="height:200px;" src="../../images/script-async.jpeg" />
 </div>
 
 蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。
@@ -135,7 +135,7 @@ Firefox 将呈现树中的元素称为“框架”。WebKit 使用的术语是�
 有一些呈现对象对应于 DOM 节点，但在树中所在的位置与 DOM 节点不同。浮动定位和绝对定位的元素就是这样，它们处于正常的流程之外，放置在树中的其他地方，并映射到真正的框架，而放在原位的是占位框架。
 
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/browser-renderTree.png" />
+  <img style="height:200px;" src="../../images/browser-renderTree.png" />
 </div>
 
 ### 布局

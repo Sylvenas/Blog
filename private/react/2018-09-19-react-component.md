@@ -9,7 +9,7 @@ React Component分为两种类型的，`class Component`和`functional component
 ### Functional Component VS Class Component
 #### Functional Component
 所谓函数式组件就是一个简单的JavaScript函数,该函数可以接受两个可选的参数，一个是`props`,一个是`context`。
-![函数式组件](../images/Stateful-vs-Stateless-Component-PropsvsState.jpg)
+![函数式组件](../../images/Stateful-vs-Stateless-Component-PropsvsState.jpg)
 如果使用函数式组件，使用ES6的语法会更简洁
 ``` js
 const Hello = ({ name }) => (<div>Hello, {name}!</div>);
@@ -32,7 +32,7 @@ const Hello = ({ name }) => {
 
 #### Class Component
 类组件比函数式组件有更多的功能，与此同时而来的类组件也有更多的弊端(此处体现了任何事物都有两面性的哲学观点)，使用类组件的主要优势在于他们可以拥有内部的`state`
-![函数式组件](../images/React-Class-Component.jpg)
+![函数式组件](../../images/React-Class-Component.jpg)
 ``` js
 class Hello extends React.Component {
     constructor(props) {

@@ -6,9 +6,9 @@ img: './img/2017-10-24.jpeg'
 ---
 
 在介绍Rxjs之前，先通过一个简单的输入框示例的演化来了解一下Rxjs的核心思想。
-![example](../images/input-example.gif)     
+![example](../../images/input-example.gif)     
 这是input输入框的示例非常简单，就是在input输入的时候，实时更新下面的文字，程序的逻辑看起来是这样的：
-![example](../images/data-model.jpeg)  
+![example](../../images/data-model.jpeg)  
 从上面的实例中我们可以梳理处三个基本的概念：       
 
 + Provider/数据的提供者     
@@ -36,7 +36,7 @@ h1.innerHTML = data;
 + 数据消费者：观察者／Observer     
 
 除此之外观察者模式明确定义了**可观察对象**和**观察者**之前的契约：每当**可观察对象**生成新的数据的时候，就调用**观察者预定义的数据接收接口**，然后观察者调用**自身的数据消费逻辑**。
-![example](../images/pub-sub.jpeg)  
+![example](../../images/pub-sub.jpeg)  
 + 1.Observer/观察者          
    + 1.1出于扩展的考虑，我们将**数据的消费逻辑**封装到一个函数中：
 
@@ -105,7 +105,7 @@ h1.innerHTML = data;
 现在我们使用Rxjs来重写这个示例：     
 首先简单介绍一下Rxjs,Rxjs的全名为：**Reactive Extensions for JavaScript**,RxJS is a reactive streams library that allows you to work with *asynchronous data streams*. RxJS can be used both in the browser or in the server-side using Node.js.     
 Rxjs隶属是庞大的[ReactiveX](http://reactivex.io/)家族的一员,同样有RxJava,RxSwift等等。
-![ReactiveX](../images/ReactiveX.jpeg)
+![ReactiveX](../../images/ReactiveX.jpeg)
 
 + Rx.Observable.fromEvent()      
 Rxjs提供了Rx.Observable.fromEvent()方法让我们从一个DOM事件，来实例化一个**Observable/可观察对象**。    

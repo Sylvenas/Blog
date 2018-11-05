@@ -88,7 +88,7 @@ function isElementInViewport(el) {
 DOM2.0中`addEventListeners`函数,可以接收三个参数，其中第三个参数是用来控制监听器是在事件捕获阶段执行还是事件冒泡阶段执行，`true`为捕获阶段，`false`为冒泡阶段，默认值为`false(冒泡阶段)`，因为传`true`的情况太少了
 
 <div style="text-align:center;margin-top:20px" align="center">
-  <img style="height:200px;" src="../images/capture-bubble.jpg" />
+  <img style="height:200px;" src="../../images/capture-bubble.jpg" />
 </div>  
 
 此过程被称为事件传播，会以此执行捕获阶段的监听函数和冒泡阶段的监听函数(注意`触发事件元素本身的监听函数，会按照监听顺序执行，而不是先执行捕获阶段的，后执行冒泡阶段的`，因为目标本身只有一个，自己本身没有捕获和冒泡,自然会按照监听的顺序执行)。在捕获过程中最外层的祖先元素最先响应，然后依次向目标元素捕获；而在冒泡过程中，子元素最先响应，然后依次向父元素冒泡。
