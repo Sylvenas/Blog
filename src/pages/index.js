@@ -174,9 +174,7 @@ class AllBlogs extends Component {
                           srcSet={`/img/${node.imgName}_md_1x.webp 1x,/img/${node.imgName}_md_2x.webp 2x`} type="image/webp" />
                         <img
                           onLoad={this.handleImgLoad(i)}
-                          srcSet={`
-                                                        /img/${node.imgName}_md_1x.${node.imgType} 900w,
-                                                        /img/${node.imgName}_lg_1x.${node.imgType} 1440w`}
+                          srcSet={`/img/${node.imgName}_md_1x.${node.imgType} 900w,/img/${node.imgName}_lg_1x.${node.imgType} 1440w`}
                           src={`/img/${node.imgName}_lg_1x.${node.imgType} 1440w`}
                           type={`image/${node.imgType}`}
                           alt="image"
