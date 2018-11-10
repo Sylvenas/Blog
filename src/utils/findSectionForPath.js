@@ -15,7 +15,7 @@ import slugify from './slugify';
 const findSectionForPath = (pathname, sections) => {
   let activeSection;
   const slugId = pathname.split('/').slice(-1)[0];
-
+  console.log(sections);
   sections.forEach(section => {
     const match = section.items.some(
       item =>

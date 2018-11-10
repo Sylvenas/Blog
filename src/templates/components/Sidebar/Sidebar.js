@@ -13,13 +13,6 @@ import ScrollSyncSection from './ScrollSyncSection';
 import {media} from 'theme';
 
 class Sidebar extends Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.state = {
-      activeSection: props.defaultActiveSection,
-    };
-  }
 
   render() {
     const {
@@ -29,7 +22,6 @@ class Sidebar extends Component {
       location,
       sectionList,
     } = this.props;
-    const {activeSection} = this.state;
 
     const SectionComponent = enableScrollSync ? ScrollSyncSection : Section;
 
@@ -42,6 +34,7 @@ class Sidebar extends Component {
           width: '100%',
           paddingLeft: 20,
           position: 'relative',
+          fontSize:13,
 
           [media.greaterThan('largerSidebar')]: {
             paddingLeft: 40,
@@ -51,10 +44,16 @@ class Sidebar extends Component {
             paddingBottom: 100,
           },
         }}>
+        <h3 css={{
+          fontFamily: 'brandon-grotesque',
+          marginBottom: 5,
+          fontWeight: 400,
+          fontSize: 14,
+          display: sectionList.length ? 'block' : 'none',
+        }}>CATALOGUE</h3>
         {sectionList.map((section, index) => (
           <SectionComponent
             createLink={createLink}
-            isActive={activeSection === section || sectionList.length === 1}
             key={index}
             location={location}
             onLinkClick={closeParentMenu}

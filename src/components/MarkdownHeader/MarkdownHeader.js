@@ -9,7 +9,7 @@
 
 import Flex from 'components/Flex';
 import React from 'react';
-import { colors, fonts, media } from 'theme';
+import { fonts, media } from 'theme';
 
 const MarkdownHeader = ({ title, authors, date }: { title: string }) => (
   <Flex type="header" halign="space-between" valign="baseline">
@@ -19,7 +19,7 @@ const MarkdownHeader = ({ title, authors, date }: { title: string }) => (
       width: '100%',
       height: 200,
       overflow: 'hidden',
-      background: '#323a45'
+      background: '#323a45',
     }}>
       <h1
         css={{
@@ -50,7 +50,7 @@ const MarkdownHeader = ({ title, authors, date }: { title: string }) => (
         fontStyle: 'italic',
         letterSpacing: '.005em',
         fontSize: 12,
-        fontWeight: 300
+        fontWeight: 300,
       }}>
         {date}{' '}
         <span>

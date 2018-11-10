@@ -25,7 +25,8 @@ export type Node = {
     base64?: string,
     categories?: string,
     id?: string,
-    img?: string
+    img?: string,
+    catalogue?: Array<string>
   },
   html: string,
   id: string,

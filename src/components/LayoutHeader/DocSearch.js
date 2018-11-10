@@ -5,7 +5,7 @@
  */
 
 import React, {Component} from 'react';
-import {colors, media,fonts} from 'theme';
+import {colors, media, fonts} from 'theme';
 
 class DocSearch extends Component {
   state = {
@@ -58,7 +58,7 @@ class DocSearch extends Component {
               borderRadius: 15,
             },
           }}
-          href='https://github.com/lit-forest'
+          href="https://github.com/lit-forest"
           target="_blank"
           rel="noopener">
           <i className="icon-github"></i>

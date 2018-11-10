@@ -11,8 +11,6 @@
  * Theme contains variables shared by styles of multiple components.
  */
 
-import hex2rgba from 'hex2rgba';
-
 const colors = {
   lighter: '#373940', // light blue
   dark: '#282c34', // dark blue
@@ -27,7 +25,7 @@ const colors = {
   error: '#ff6464', // yellow
   white: '#ffffff',
   black: '#000000',
-  lightRed: '#f36'
+  lightRed: '#f36',
 };
 
 const SIZES = {
@@ -84,7 +82,7 @@ const media = {
 const fonts = {
   header: {
     [media.lessThan('medium')]: {
-      fontSize: 40,
+      fontSize: 20,
       lineHeight: '45px',
     },
   },
@@ -92,8 +90,8 @@ const fonts = {
     fontSize: 14,
   },
   mid: {
-    fontSize: 15
-  }
+    fontSize: 15,
+  },
 };
 
 // Shared styles are generally better as components,
@@ -108,7 +106,7 @@ const linkStyle = {
   ':hover': {
     //backgroundColor: colors.brandLight,
     //borderBottomColor: colors.text,
-    color: '#f36'
+    color: '#f36',
   },
 };
 const sharedStyles = {
@@ -137,21 +135,21 @@ const sharedStyles = {
       flexDirection: 'column',
 
       [media.between('small', 'sidebarFixed')]: {
-        borderLeft: '1px solid #ececec',
-        marginLeft: 80,
+        // borderLeft: '1px solid #ececec',
+        // marginLeft: 80,
       },
 
       [media.between('small', 'largerSidebar')]: {
-        flex: '0 0 200px',
-        marginLeft: 80,
+        // flex: '0 0 200px',
+        // marginLeft: 80,
       },
 
       [media.between('small', 'medium')]: {
-        marginLeft: 40,
+        // marginLeft: 40,
       },
 
       [media.greaterThan('largerSidebar')]: {
-        flex: '0 0 300px',
+        // flex: '0 0 300px',
       },
 
       [media.greaterThan('sidebarFixed')]: {
@@ -182,7 +180,7 @@ const sharedStyles = {
     lineHeight: '25px',
     'p > img': {
       display: 'inlineblock',
-      margin: '0 auto'
+      margin: '0 auto',
     },
     '& .gatsby-highlight': {
       marginTop: 25,
@@ -200,20 +198,6 @@ const sharedStyles = {
     },
 
     '& a:not(.anchor):not(.gatsby-resp-image-link)': linkStyle,
-
-    '& > p:first-child': {
-      // fontSize: 15,
-      // color: colors.subtle,
-
-      // [media.greaterThan('xlarge')]: {
-      //   fontSize: 16,
-      // },
-
-      // '& a, & strong': {
-      //   fontWeight: 600,
-      //   color: '#323a45'
-      // },
-    },
     '& table': {
       //margin: '10px',
       borderCollapse: 'collapse',
@@ -223,12 +207,12 @@ const sharedStyles = {
         color: '#323a45',
         background: '#F3F3F3',
         border: '1px solid #E6E6E6',
-        padding: '5px 8px'
+        padding: '5px 8px',
       },
       '& td': {
         border: '1px solid #E6E6E6',
-        padding: '5px 8px'
-      }
+        padding: '5px 8px',
+      },
     },
     '& strong': {
       fontWeight: 600,
@@ -269,7 +253,7 @@ const sharedStyles = {
       fontFamily: '"Open Sans", "open-sans", sans-serif',
       background: 'rgba(0, 0, 0, .05)',
       margin: '0 3px',
-      borderRadius: '3px'
+      borderRadius: '3px',
     },
 
     '& hr': {
@@ -326,7 +310,7 @@ const sharedStyles = {
     },
 
     '& h3': {
-      paddingTop: 45,
+      paddingTop: 50,
       color: '#323a45',
       fontWeight: 600,
       [media.greaterThan('xlarge')]: {
@@ -343,7 +327,7 @@ const sharedStyles = {
       fontSize: 16,
       color: '#323a45',
       lineHeight: 1.3,
-      marginTop: 50,
+      marginTop: 35,
       // fontWeight: 500,
     },
     '& h5': {

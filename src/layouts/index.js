@@ -22,7 +22,7 @@ import '../prism-styles';
 import 'glamor/reset';
 import 'css/reset.css';
 import 'css/algolia.css';
-import 'css/archive.css'
+import 'css/archive.css';
 import 'css/icomoon.css';
 import 'css/blog.css';
 

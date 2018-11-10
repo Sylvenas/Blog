@@ -8,14 +8,10 @@
 'use strict';
 
 import Link from 'gatsby-link';
-import Container from 'components/Container';
-import Header from 'components/Header';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
 import React, { Component } from 'react';
 import { urlRoot } from 'site-constants';
-import { colors, media, sharedStyles } from 'theme';
-import toCommaSeparatedList from 'utils/toCommaSeparatedList';
-import MetaTitle from 'templates/components/MetaTitle';
+import {  media, sharedStyles } from 'theme';
 
 /**
  * 函数防抖，滚动事件结束之后，在执行
@@ -272,6 +268,7 @@ export const pageQuery = graphql`
             categories
             img
             excerpt
+            catalogue
           }
           fields {
             date(formatString: "MMMM DD, YYYY")

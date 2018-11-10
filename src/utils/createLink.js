@@ -14,10 +14,9 @@ import {colors, media} from 'theme';
 
 const createLinkBlog = ({isActive, item, section}) => {
   return (
-    <Link css={[linkCss, isActive && activeLinkCss]} to={item.id}>
-      {isActive && <span css={activeLinkBefore} />}
-      {item.title}
-    </Link>
+    <a css={[linkCss]} href={'#' + section}>
+      {section}
+    </a>
   );
 };
 
@@ -88,12 +87,14 @@ const activeLinkBefore = {
 const linkCss = {
   color: colors.text,
   display: 'inline-block',
-  borderBottom: '1px solid transparent',
   transition: 'border 0.2s ease',
-  marginTop: 5,
+  marginTop: 3,
+  paddingBottom:2,
+  borderBottom: '1px dotted transparent',
 
   '&:hover': {
     color: colors.subtle,
+    borderBottom: '1px dotted rgba(64, 153, 255, .6)',
   },
 };
 

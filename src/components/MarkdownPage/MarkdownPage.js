@@ -10,13 +10,10 @@
 import Container from 'components/Container';
 import Flex from 'components/Flex';
 import MarkdownHeader from 'components/MarkdownHeader';
-import NavigationFooter from 'templates/components/NavigationFooter';
 import Share from 'components/Share';
 import React from 'react';
 import StickyResponsiveSidebar from 'components/StickyResponsiveSidebar';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
-import findSectionForPath from 'utils/findSectionForPath';
-import toCommaSeparatedList from 'utils/toCommaSeparatedList';
 import { sharedStyles } from 'theme';
 import createOgUrl from 'utils/createOgUrl';
 
@@ -45,7 +42,6 @@ const MarkdownPage = ({
   sectionList,
   titlePostfix = '',
 }: Props) => {
-  const hasAuthors = authors.length > 0;
   const titlePrefix = markdownRemark.frontmatter.title || '';
   return (
     <Flex
@@ -78,30 +74,17 @@ const MarkdownPage = ({
               </div>
             </Flex>
 
-            {/* <div css={sharedStyles.articleLayout.sidebar}>
+            <div css={sharedStyles.articleLayout.sidebar}>
               <StickyResponsiveSidebar
                 enableScrollSync={enableScrollSync}
                 createLink={createLink}
-                defaultActiveSection={findSectionForPath(
-                  location.pathname,
-                  sectionList,
-                )}
                 location={location}
                 sectionList={sectionList}
               />
-            </div> */}
+            </div>
           </div>
         </Container>
       </div>
-
-      {/* TODO Read prev/next from index map, not this way */}
-      {(markdownRemark.frontmatter.next || markdownRemark.frontmatter.prev) && (
-        <NavigationFooter
-          location={location}
-          next={markdownRemark.frontmatter.next}
-          prev={markdownRemark.frontmatter.prev}
-        />
-      )}
     </Flex>
   );
 };

@@ -3,6 +3,8 @@ title: "http cache"
 author: [Sylvenas]
 categories: 'http'
 img: './img/2015-03-25.jpg'
+excerpt: '浏览器缓存知识详解'
+catalogue: ['概述','浏览器缓存过程分析','强制缓存','协商缓存','总结']
 ---
 
 ### 概述
