@@ -21,6 +21,7 @@ const Section = ({
       display: 'block',
     },
   }}>
+    <span>- </span>    
     {createLink({
       section,
       location,
