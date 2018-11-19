@@ -14,7 +14,7 @@ import {colors, media} from 'theme';
 
 const createLinkBlog = ({isActive, item, section}) => {
   return (
-    <a css={[linkCss]} href={'#' + section}>
+    <a css={[linkCss]} href={'#' + section.replace(/\s/g, '-').toLowerCase()}>
       {section}
     </a>
   );

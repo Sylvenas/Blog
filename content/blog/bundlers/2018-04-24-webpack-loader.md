@@ -4,10 +4,10 @@ author: [Sylvenas]
 categories: 'bundlers'
 img: './img/2015-03-25.jpg'
 excerpt: 'webpack loader实现的基本原理'
-catalogue: ['webpack原理','webpack的核心概念','webpack构建流程','webpack loader','Writing a Loader','loader的常用API','Summary']
+catalogue: ['webpack原理','webpack的核心概念','webpack构建流程','webpack-loader','Writing A Loader','loader的常用API','Summary']
 ---
 
-### webpack原理
+### Webpack原理
 本质上来说webpack是运行在node.js之上的一个JavaScript程序,通过配置文件指令程序应当从哪里入手、遇到各种文件应当怎么处理、遇到导入的文件，怎么根据路径加载，以及在处理各种文件的过程中，做各种优化和处理;
 
 一切文件：JavaScript、CSS、SCSS、图片、模板，在 Webpack 眼中都是一个个模块，这样的好处是能清晰的描述出各个模块之间的依赖关系，以方便 Webpack对模块进行组合和打包。 经过Webpack的处理，最终会输出浏览器能使用的静态资源。
@@ -30,7 +30,7 @@ catalogue: ['webpack原理','webpack的核心概念','webpack构建流程','webp
 
 需要注意的是，在构建生命周期中有一系列插件在合适的时机做了合适的事情，eg:`UglifyJsPlugin`会在loader转换递归完后对结果再使用`UglifyJs`压缩覆盖之前的结果。
 
-### webpack loader
+### webpack-loader
 Loader 就像是一个流水工厂，能把源文件经过转化后输出新的结果，并且一个文件还可以链式的经过多个工厂加工
 
 以处理 SCSS 文件为例：
@@ -52,7 +52,7 @@ Loader 就像是一个流水工厂，能把源文件经过转化后输出新的�
 
 所以，在你开发一个 `Loader` 时，请保持其职责的单一性，你只需关心输入和输出。
 
-### Writing a Loader
+### Writing A Loader
 从上面的介绍可以看出loader就是一个Node.js的模块，这个模块需要导出一个函数，而这个函数的作用就是对接收的内容进行处理，并把处理的结果返回给下一个模块。
 那么一个最简单的loader的内容就是：
 ``` js
