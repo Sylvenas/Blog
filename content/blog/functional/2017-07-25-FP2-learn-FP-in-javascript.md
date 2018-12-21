@@ -1,5 +1,5 @@
 ---
-title: "Why Learn FP in JavaScript?"
+title: "FP2：Why Learn FP in JavaScript?"
 author: [Sylvenas]
 categories: "composing software"
 img: './img/2017-12-24.jpeg'

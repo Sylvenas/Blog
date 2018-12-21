@@ -1,5 +1,5 @@
 ---
-title: "Hindley-Milner"
+title: "FP9：Hindley-Milner"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2018-12-06.jpeg'

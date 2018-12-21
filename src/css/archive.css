@@ -103,7 +103,8 @@
             border-bottom: 1px dotted rgba(64, 153, 255, .6);
         }
 
-        .post-title:hover {
+        .post-title:hover,
+        .post-title-cat:hover {
             color: #f36;
             border-bottom: 1px solid #f36;
         }

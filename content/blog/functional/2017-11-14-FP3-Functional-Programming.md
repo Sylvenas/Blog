@@ -1,5 +1,5 @@
 ---
-title: "Functional Programming"
+title: "FP3：Functional Programming"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2017-11-14.jpeg'

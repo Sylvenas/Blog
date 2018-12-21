@@ -4,10 +4,10 @@
 import Container from 'components/Container';
 import React from 'react';
 
-import type {allMarkdownRemarkData } from 'types';
+import type { allMarkdownRemarkData } from 'types';
 
 type Props = {
-    data: allMarkdownRemarkData,
+  data: allMarkdownRemarkData,
 };
 
 const AllBlogPosts = ({ data }: Props) => {

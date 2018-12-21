@@ -1,5 +1,5 @@
 ---
-title: "Transform Naturally"
+title: "FP17：Transform Naturally"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2018-11-26.jpeg'

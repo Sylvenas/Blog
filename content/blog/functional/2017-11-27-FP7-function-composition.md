@@ -1,5 +1,5 @@
 ---
-title: "What is Function Composition?"
+title: "FP7：What is Function Composition?"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2017-11-27.jpeg'

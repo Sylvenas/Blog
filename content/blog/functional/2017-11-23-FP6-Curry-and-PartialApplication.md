@@ -1,5 +1,5 @@
 ---
-title: "Partial Application And Curry"
+title: "FP6：Partial Application And Curry"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2017-11-23.jpeg'

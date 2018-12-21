@@ -1,5 +1,5 @@
 ---
-title: "Semigroup"
+title: "FP17：Semigroup"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2018-12-13.jpeg'

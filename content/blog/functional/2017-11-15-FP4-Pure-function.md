@@ -1,5 +1,5 @@
 ---
-title: "Pure function"
+title: "FP4：Pure function"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2017-11-15.jpeg'

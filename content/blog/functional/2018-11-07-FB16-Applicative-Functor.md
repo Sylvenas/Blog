@@ -1,5 +1,5 @@
 ---
-title: "Applicative Functor"
+title: "FP16：Applicative Functor"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2018-11-26.jpeg'
