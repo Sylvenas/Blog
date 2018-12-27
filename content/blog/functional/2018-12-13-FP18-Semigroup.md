@@ -1,8 +1,9 @@
 ---
-title: "FP17：Semigroup"
+title: "FP18：Semigroup"
 author: [Sylvenas]
 categories: "functional"
 img: './img/2018-12-13.jpeg'
+excerpt: '所谓`Semigroup`(半群)，其实就是含有concat方法的数据类型，典型的如字符串和数组...'
 ---
 所谓`Semigroup`(半群)，其实就是含有concat方法的数据类型，典型的如字符串和数组，看代码：
 ``` js

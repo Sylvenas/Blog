@@ -2,7 +2,7 @@
 title: "higher-order component(HOC)"
 author: [Sylvenas]
 categories: "React"
-img: './img/2016-08-21.jpeg'
+img: './img/2017-07-11.jpeg'
 ---
 在函数式编程中，有一个概念叫做[高阶函数](),高阶函数通常意义上来说会对传入的函数进行增强，返回一个添加了额外功能的新函数。
 

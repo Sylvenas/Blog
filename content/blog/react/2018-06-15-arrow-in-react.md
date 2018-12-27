@@ -2,7 +2,7 @@
 title:  "react 性能优化：arrow function in react"
 author: [sylvenas]
 categories: 'React'
-img: './img/2013-06-12.jpeg'
+img: './img/2017-08-19.jpeg'
 ---
 在react中最常见的一个操作就是把一个数组的数据map成一个react组件的数组，然后其中的每一个组件都要绑定事件，看一下下面的这个例子：
 ``` js

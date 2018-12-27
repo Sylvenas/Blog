@@ -2,7 +2,7 @@
 title: "web image 加载优化方案--responsive-image"
 author: [Sylvenas]
 categories: "性能优化"
-img: './img/2018-03-06.jpeg'
+img: './img/2018-03-10.jpeg'
 ---
 所谓响应式的图片，就是让我们在不同的平台，不同的设备上使用的图片都不一样，设计师切图给我们的时候，一般都会把给我1x,2x,3x,4x的图片，有的时候，那么这几张图片我们该怎么使用呢？
 

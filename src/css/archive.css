@@ -112,7 +112,7 @@
         .resume-title {
             font-weight: 600;
             font: 600 30px/1.5 "Open Sans", "open-sans", sans-serif;
-            font-size: 22px;
+            font-size: 18px;
             color: #323a45;
         }
 
@@ -120,7 +120,7 @@
             display: inline-block;
             font-weight: 600;
             font: 600 30px/1.5 "Open Sans", "open-sans", sans-serif;
-            font-size: 18px;
+            font-size: 16px;
             color: #323a45;
             margin: 5px 0;
             border-bottom: 1px dotted rgba(64, 153, 255, .6);

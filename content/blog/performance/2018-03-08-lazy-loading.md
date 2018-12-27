@@ -2,7 +2,7 @@
 title: "web image 加载优化方案--lazy-load"
 author: [Sylvenas]
 categories: "性能优化"
-img: './img/2018-03-06.jpeg'
+img: './img/2018-03-08.jpeg'
 ---
 
 ### Lazy loading     

@@ -2,7 +2,7 @@
 title: "FP16：Applicative Functor"
 author: [Sylvenas]
 categories: "functional"
-img: './img/2018-11-26.jpeg'
+img: './img/2018-11-07.jpeg'
 ---
 
 ### Applicative Functor

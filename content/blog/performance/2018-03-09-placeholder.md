@@ -2,7 +2,7 @@
 title: "web image 加载优化方案--placeholder"
 author: [Sylvenas]
 categories: "性能优化"
-img: './img/2018-03-06.jpeg'
+img: './img/2018-03-09.jpeg'
 ---
 
 大概的placeholder的技术方案基本思路都是先加载一个很小的模糊但是能基本展示图片的轮廓和色调的图片作为占位符，然后再加载真正要展示的图像，大的图像加载完成之后，使用一个渐变的效果隐藏小的图片，展示真正的图片。
