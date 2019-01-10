@@ -154,9 +154,8 @@
         }
 
         .resume-love {
-            width: 100%;
+            display: block;
             border-radius: 3px;
-            margin: 5px 0 10px;
         }
 
         .work {

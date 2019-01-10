@@ -1,6 +1,12 @@
 import React from 'react';
 import Container from 'components/Container';
-import love from '../images/love.jpg';
+import love from '../images/love.png';
+import book1 from '../images/1.jpeg'
+import book2 from '../images/2.jpeg'
+import book3 from '../images/3.jpeg'
+import book4 from '../images/4.jpeg'
+import book5 from '../images/5.jpeg'
+import book6 from '../images/6.jpeg'
 
 class Resume extends React.Component {
   constructor() {
@@ -117,9 +123,21 @@ const Projects = () => (
         </p>
   </div>
 )
+
+const BOOKS = [book1, book2, book3, book4, book5, book6]
+
 const Books = () => (
-  <div>
-    books
+  <div css={{
+    display: 'flex',
+    flexWrap:'wrap'
+  }}>
+    {BOOKS.map((book, idx) => <img
+      key={idx}
+      src={book} css={{
+        height: 200,
+        width: 150,
+        margin:10
+      }} />)}
   </div>
 )
 
