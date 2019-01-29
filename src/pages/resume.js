@@ -26,19 +26,11 @@ class Resume extends React.Component {
       }}>
         <div css={{
           margin: '2em auto 1em',
+          width: '100%',
         }}>
           <h2 className="resume-title">About</h2>
           <p className="resume-p">Mello is a holy buddhist, a husband. He lives in HangZhou, ZheJiang with his wife Tyran.</p>
-          <img src={love} className="resume-love" css={{
-            [media.greaterThan('small')]: {
-              width: '39.65%',
-              height: '59.53%',
-            },
-            [media.lessThan('small')]: {
-              width: '100%',
-              height: '150%',
-            },
-          }} />
+          <Love />
           <p className="resume-p">
             Mello is currently a Frontend developer engineer and manager of the Frontend Platform team at
             <a href="http://netease.com" target="_blank"> NetEase</a>. He originally joined the Listings team at NetEase in Apr 2017, tasked to revamp the event details pages from an archaic MySpace-style design to a modern, fully responsive layout.
@@ -52,6 +44,12 @@ class Resume extends React.Component {
     );
   }
 }
+
+const Love = () => (
+  <div className="love-container">
+    <img src={love} className="resume-love" />
+  </div>
+);
 
 const Posts = ({ active, handleClick }) => (
   <div css={{
@@ -71,7 +69,7 @@ const Posts = ({ active, handleClick }) => (
       marginTop: active == 0 ? -1 : 0,
       color: active === 0 ? '#262626' : '#999',
     }}
-      onClick={handleClick.bind(null, 0)}>
+    onClick={handleClick.bind(null, 0)}>
       BIO
     </a>
     <a css={{
@@ -82,7 +80,7 @@ const Posts = ({ active, handleClick }) => (
       marginTop: active == 1 ? -1 : 0,
       color: active === 1 ? '#262626' : '#999',
     }}
-      onClick={handleClick.bind(null, 1)}
+    onClick={handleClick.bind(null, 1)}
     >
       PROJECTS</a>
     <a css={{
@@ -93,7 +91,7 @@ const Posts = ({ active, handleClick }) => (
       marginTop: active == 2 ? -1 : 0,
       color: active === 2 ? '#262626' : '#999',
     }}
-      onClick={handleClick.bind(null, 2)}
+    onClick={handleClick.bind(null, 2)}
     >
       BOOKS</a>
   </div>

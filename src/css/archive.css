@@ -153,8 +153,29 @@
             cursor: pointer;
         }
 
-        .resume-love {
+        .love-container {
+            width: 341px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 600px) {
+            .love-container {
+                width: 100%;
+            }
+        }
+
+        .love-container:after {
+            content: '';
             display: block;
+            margin-top: 150%;
+        }
+
+        .resume-love {
+            position: absolute;
+            top: 0;
+            width: 100%;
             border-radius: 3px;
         }
 
