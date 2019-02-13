@@ -127,7 +127,7 @@ function partial(fn,...presetArgs) {
 }
 
 // or the ES6 => arrow form
-var partial =
+const partial =
     (fn,...presetArgs) =>
         (...laterArgs) =>
             fn( ...presetArgs, ...laterArgs );
@@ -264,13 +264,61 @@ var sequence = function (start, end) {
 var seq5 = currier(sequence, 3);
 seq5(5); // [3,4,5]
 ```
->柯里化和偏应用很类似，都可以预填充部分数据，但是，两者的不同之处在于，柯里化函数会明确的返回一个期望**只接收下一个参数**的函数，而偏应用则是返回一个可以**接收余下所有参数**的函数。
+> 柯里化和偏应用很类似，都可以预填充部分数据，但是，两者的不同之处在于，柯里化函数会明确的返回一个期望**只接收下一个参数**的函数，而偏应用则是返回一个可以**接收余下所有参数**的函数。
+>
+> 柯里化在每次调用时都会生成嵌套的一元函数。在底层，函数的最终结果是由这些一元函数的逐步组合产生的。同时，柯里化的变体允许同时传递一部分参数。因此，可以完全控制函数求值的时间和方式。
+>
+> 部门应用将函数的参数与一些预设值绑定(赋值)，从而产生一个拥有更少参数的心函数。该函数的闭包中包含了这些已赋值的参数，在之后的调用中被完全求值。
+
 
 例如：一个原函数期望接收5个参数，那么这个函数的柯里化形式只会接收第一个参数，并且返回一个用来接收第二个参数的函数。并且这个被返回的函数也只能接收第二个参数，并返回一个接收第三个参数的函数，以此类推；但是这个原函数的偏应用函数，可以先固定前面的某几个参数，然后接收剩下的全部的参数。
 
 
-
 ### Real World Currying Examples
+柯里化技术使用的分厂广泛，通常用于创建可抽象函数行为的函数包装器，可预设其参数或者部门求值。其优势源于具有较少参数的纯函数比较多参数的函数更易使用。两种方法都有助于向函数提供正确的参数，这样函数就不必在减少为一元函数时公然地访问其作用域之外的对象。这种分离参数获取逻辑的方式使得函数具有更好的可重用性。更重要的是，它简化了函数组合。
+
+#### 扩展JavaScript原生对象的方法
+``` js
+const Log = console.log;
+
+const partial = (fn, ...presetArgs) => {
+	const placeholder = '_';
+
+	const bound = function () {
+
+		let position = 0;
+		const length = presetArgs.length;
+		const args = Array(length);
+
+		for (let i = 0; i < length; i++) {
+			args[i] = presetArgs[i] === placeholder ?
+				arguments[position++] : presetArgs[i]
+		}
+
+		while (position < arguments.length) {
+			args.push(arguments[position++])
+		}
+
+		return fn.apply(this, args)
+	};
+
+	return bound;
+}
+
+String.prototype.first = partial(String.prototype.substring, 0, '_');
+
+String.prototype.last = partial(String.prototype.slice, '_');
+
+String.prototype.asName = partial(String.prototype.replace, /(\w+)\s(\w+)/, '$2, $1')
+
+Array.prototype.compute = partial(Array.prototype.map)
+
+Log('abcdef'.first(3).last(-1));
+
+Log('zhao tao'.asName());
+
+Log([1, 2].compute(x => x * 3))
+```
 #### JavaScript Bind
 `Function.prototype.bind()`可以直接实现currying的功能
 ``` js{4}

@@ -8,11 +8,12 @@
 - 《编译原理》
 - 《数据结构》
 
-#### HTTP & HTTP2 & HTTPS
+#### HTTP & HTTP2 & HTTPS & WebSockets
 - 浏览器缓存/代理服务器缓存/CDN
 - HTTP2的特性
 - HTTPS安全的原因，三个要素的原理
 - 常见的HTTP攻击与防御
+- WebSockets于HTTP2的消息推送
 
 #### 性能优化
 - 浏览器的优化
@@ -24,6 +25,17 @@
     - 尾递归
   - CSS优化
     - 3D加速
+
+#### 浏览器事件
+- 事件捕获与事件冒泡
+- 自定义事件
+- passive监听器
+
+#### JS执行原理
+- 事件循环与异步编程
+- V8引擎
+- 内存管理/垃圾收集/内存泄漏
+
 
 
 ## Getting started
