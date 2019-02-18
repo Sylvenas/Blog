@@ -42,7 +42,7 @@ css.global(
 .gatsby-highlight pre.prism-code`,
   {
     height: 'auto !important',
-    margin: '1rem',
+    margin: '1rem 0',
     fontSize: 14,
     lineHeight: '20px',
     whiteSpace: 'pre-wrap',
@@ -155,7 +155,7 @@ css.global('.token.important', {
 
 css.global('.token.bold', {
   fontWeight: 600,
-  color: '#323a45'
+  color: '#323a45',
 });
 css.global('.token.italic', {
   fontStyle: 'italic',

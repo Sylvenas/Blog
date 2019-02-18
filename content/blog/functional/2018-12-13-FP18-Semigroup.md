@@ -105,6 +105,7 @@ true && false // false
     Min.empty = () => Min(Infinity)
 }
 ```
+
 * Either
 ``` js
 const Right = x =>
@@ -119,7 +120,6 @@ const Right = x =>
                 y => Right(x.concat(y))),
         inspect: () => `Right(${x})`
     })
-
 const Left = x =>
     ({
         chain: f => Left(x),
@@ -132,10 +132,8 @@ const Left = x =>
                 y => o),
         inspect: () => `Left(${x})`
     })
-
 const fromNullable = x =>
     x != null ? Right(x) : Left(null)
-
 const tryCatch = f => {
     try {
         return Right(f())
@@ -143,7 +141,6 @@ const tryCatch = f => {
         return Left(e)
     }
 }
-
 // List from https://github.com/DrBoolean/immutable-ext
 const stats = List.of({page:'home', view: 40},
                     {page:'about', view: 40},

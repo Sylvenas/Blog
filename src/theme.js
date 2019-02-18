@@ -187,7 +187,7 @@ const sharedStyles = {
       marginLeft: -30,
       marginRight: -30,
       marginBottom: 25,
-      paddingLeft: 15,
+      paddingLeft: 35,
       paddingRight: 15,
 
       [media.lessThan('small')]: {
