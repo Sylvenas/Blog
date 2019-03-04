@@ -2,7 +2,7 @@
 title: "How JavaScript Work: Event Loop"
 author: [Sylvenas]
 categories: 'Async'
-img: './img/2015-03-25.jpg'
+img: './img/2016-11-15.jpeg'
 catalogue: ['单线程','同步与异步','异步过程的构成要素','消息队列和事件循环','tasks--microtasks']
 ---
 

@@ -2,7 +2,7 @@
 title: "前端资源加载优先级"
 author: [Sylvenas]
 categories: '性能优化'
-img: './img/2015-03-25.jpg'
+img: './img/2019-01-12.jpeg'
 catalogue: ['默认优先级','预加载Preload','预连接Preconnect','预获取Prefetch','预获取Prefetch不会覆盖']
 ---
 

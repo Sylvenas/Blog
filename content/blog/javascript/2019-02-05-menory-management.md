@@ -2,7 +2,7 @@
 title: "How JavaScript Work: 内存管理/垃圾收集/内存泄漏"
 author: [Sylvenas]
 categories: 'JavaScript'
-img: './img/2015-03-25.jpg'
+img: './img/2019-02-05.jpg'
 catalogue: ['概述','浏览器缓存过程分析','强制缓存','协商缓存','总结']
 ---
 

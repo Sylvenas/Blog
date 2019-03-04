@@ -2,7 +2,7 @@
 title: "Promise API"
 author: [Sylvenas]
 categories: 'Async'
-img: './img/2015-03-25.jpg'
+img: './img/2015-02-18.jpeg'
 catalogue: ['resolve和reject','Promise.then','Promise.catch','Promiseall','Promiserace','Promisefinally']
 ---
 

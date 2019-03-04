@@ -2,7 +2,7 @@
 title: "async & await"
 author: [Sylvenas]
 categories: 'Async'
-img: './img/2015-03-25.jpg'
+img: './img/2015-05-11.jpeg'
 catalogue: ['Generator','Generator之yield','generator实战']
 ---
 关于异步的实现，上面的一节中的需求：有接口1，接口2，接口3，要求按照顺序输出接口1，接口2，接口3的返回值

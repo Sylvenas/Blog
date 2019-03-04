@@ -2,7 +2,7 @@
 title: "Generator"
 author: [Sylvenas]
 categories: 'Async'
-img: './img/2015-03-25.jpg'
+img: './img/2015-03-11.jpeg'
 catalogue: ['Generator','Generator之yield','generator实战']
 ---
 说起javascript异步，我想你一定会想起ES7的`async`，甚至要排在Promise之前，从今天起我们来聊一聊async    
