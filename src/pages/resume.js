@@ -7,7 +7,6 @@ import book3 from '../images/3.jpeg';
 import book4 from '../images/4.jpeg';
 import book5 from '../images/5.jpeg';
 import book6 from '../images/6.jpeg';
-import { colors, media, fonts } from 'theme';
 
 class Resume extends React.Component {
   constructor() {
@@ -29,7 +28,16 @@ class Resume extends React.Component {
           width: '100%',
         }}>
           <h2 className="resume-title">About</h2>
-          <p className="resume-p">Mello is a holy buddhist, a husband. He lives in HangZhou, ZheJiang with his wife Tyran.</p>
+          <p className="resume-p">Mello is a holy buddhist. He lives in HangZhou, ZheJiang with his girlfriend Tyran. He likes basketball, books and travel.</p>
+          <br />
+          <p className="resume-p"><b>Keywords: </b>
+            <span class="keywords"><a href="/categories.html#functional">Functional Programming</a></span>、
+            <span class="keywords"><a href="/categories.html#Async">Async Programming</a></span>、
+            <span class="keywords"><a href="/blog/2017/11/20/FP5-closure.html">Closure</a></span>、
+            <span class="keywords"><a href="/blog/2018/09/02/FP14-Monad-1.html">Functor/Monad</a></span>、
+            <span class="keywords"><a href="/categories.html#composing%20software">Function Compose</a></span>、
+            <span class="keywords"><a href="/categories.html#React">React/Redux</a></span>
+          </p>
           <Love />
           <p className="resume-p">
             Mello is currently a Frontend developer engineer and manager of the Frontend Platform team at

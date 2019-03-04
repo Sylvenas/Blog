@@ -138,6 +138,25 @@
             line-height: 1.9;
         }
 
+        .keywords {
+            padding: 0 3px;
+            font-size: inherit;
+            word-break: break-word;
+            font-family: "Open Sans", "open-sans", sans-serif;
+            background: rgba(0, 0, 0, .05);
+            margin: 0 3px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom: 1px dotted rgba(64, 153, 255, .6);
+            transition: color .3s;
+            cursor: pointer;
+        }
+
+        .keywords:hover {
+            color: #f36;
+            border-bottom: 1px solid #f36;
+        }
+
         .resume-p>a {
             color: #2f7bbd;
             font-size: 16px;
@@ -158,6 +177,8 @@
             margin: 0 auto;
             position: relative;
             overflow: hidden;
+            background: #f0db4f;
+            margin-top: 20px;
         }
 
         @media screen and (max-width: 600px) {
