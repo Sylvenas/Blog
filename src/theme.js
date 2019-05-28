@@ -328,14 +328,14 @@ const sharedStyles = {
       color: '#323a45',
       lineHeight: 1.3,
       marginTop: 35,
-      // fontWeight: 500,
+      fontWeight: 600,
     },
     '& h5': {
       fontSize: 16,
       color: '#323a45',
       lineHeight: 1.3,
       marginTop: 20,
-      fontWeight: 500,
+      fontWeight: 600,
     },
     '& h4 + p': {
       marginTop: 20,

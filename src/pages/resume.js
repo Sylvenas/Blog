@@ -31,12 +31,12 @@ class Resume extends React.Component {
           <p className="resume-p">Mello is a holy buddhist. He lives in HangZhou, ZheJiang with his girlfriend Tyran. He likes basketball, books and travel.</p>
           <br />
           <p className="resume-p"><b>Keywords: </b>
-            <span class="keywords"><a href="/categories.html#functional">Functional Programming</a></span>、
-            <span class="keywords"><a href="/categories.html#Async">Async Programming</a></span>、
-            <span class="keywords"><a href="/blog/2017/11/20/FP5-closure.html">Closure</a></span>、
-            <span class="keywords"><a href="/blog/2018/09/02/FP14-Monad-1.html">Functor/Monad</a></span>、
-            <span class="keywords"><a href="/categories.html#composing%20software">Function Compose</a></span>、
-            <span class="keywords"><a href="/categories.html#React">React/Redux</a></span>
+            <span className="keywords"><a href="/categories.html#functional">Functional Programming</a></span>、
+            <span className="keywords"><a href="/categories.html#Async">Async Programming</a></span>、
+            <span className="keywords"><a href="/blog/2017/11/20/FP5-closure.html">Closure</a></span>、
+            <span className="keywords"><a href="/blog/2018/09/02/FP14-Monad-1.html">Functor/Monad</a></span>、
+            <span className="keywords"><a href="/categories.html#composing%20software">Function Compose</a></span>、
+            <span className="keywords"><a href="/categories.html#React">React/Redux</a></span>
           </p>
           <Love />
           <p className="resume-p">
