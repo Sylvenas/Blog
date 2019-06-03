@@ -74,7 +74,7 @@ body {
 
 vh、vw方案即将视觉视口宽度`window.innerWidth`和视觉视口宽度`window.innerHeight`等分为100份。
 
-阿里巴巴的`flexible`方案就是模仿这种方案， 不过随着浏览器兼容性的进步，`vh、vw`方案已经可以直接用了。
+本质上来说，`flexible`方案就是模仿这种方案，随着浏览器兼容性的进步，`vh、vw`方案已经可以直接用了。
 
 ![vw-vh](../../images/vw-vh.png)
 
@@ -85,6 +85,8 @@ vh、vw方案即将视觉视口宽度`window.innerWidth`和视觉视口宽度`wi
 没有任何一种方案是完美的，vw,vh也存在一下缺陷：
 * `px`转换成vw不一定能完全整除，因此有一定的像素差。
 * 当容器使用vw,margin使用px时，很容易造成整体宽度超过100vw,从而影响布局效果。当然我们也是可以避免的，比如使用`padding`代替`margin`，结合`calc`函数使用
+* 兼容性
+部分机型不支持vw,vh，可以采用csspolyfill来进行降级处理，推荐[viewport-units-buggyfill](https://github.com/rodneyrehm/viewport-units-buggyfill)
 
 
 
