@@ -28,7 +28,7 @@ class Resume extends React.Component {
           width: '100%',
         }}>
           <h2 className="resume-title">About</h2>
-          <p className="resume-p">Mello is a holy buddhist. He lives in HangZhou, ZheJiang with his girlfriend Tyran. He likes basketball, books and travel.</p>
+          <p className="resume-p">Mello is a holy buddhist. He lives in HangZhou, ZheJiang. He likes basketball, books, games and travel.</p>
           <br />
           <p className="resume-p"><b>Keywords: </b>
             <span className="keywords"><a href="/categories.html#functional">Functional Programming</a></span>、
@@ -38,7 +38,7 @@ class Resume extends React.Component {
             <span className="keywords"><a href="/categories.html#composing%20software">Function Compose</a></span>、
             <span className="keywords"><a href="/categories.html#React">React/Redux</a></span>
           </p>
-          <Love />
+          {/* <Love /> */}
           <p className="resume-p">
             Mello is currently a Frontend developer engineer and manager of the Frontend Platform team at
             <a href="http://netease.com" target="_blank"> NetEase</a>. He originally joined the Listings team at NetEase in Apr 2017, tasked to revamp the event details pages from an archaic MySpace-style design to a modern, fully responsive layout.
