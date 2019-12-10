@@ -65,8 +65,8 @@ const Footer = ({ layoutHasSidebar = false }) => (
               paddingTop: 40,
             },
           }}>
-            Ask me anything!
-            <a
+          Ask me anything!
+          <a
             css={{
               marginLeft: 20,
               padding: '6px 17px',
@@ -80,13 +80,13 @@ const Footer = ({ layoutHasSidebar = false }) => (
               ':hover': {
                 background: '#252b33',
                 border: '1px solid #f36',
-                color: '#f36'
-              }
+                color: '#f36',
+              },
             }}
             target="_blank"
-            href={`https://github.com/lit-forest/lit-forest.github.io/issues/new`}>
+            href={`https://github.com/Sylvenas/sylvenas.github.io/issues/new`}>
             Issues
-            </a>
+          </a>
           <p
             css={{
               color: '#fff',
