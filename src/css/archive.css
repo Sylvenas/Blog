@@ -173,24 +173,16 @@
         }
 
         .love-container {
-            width: 341px;
+            width: 100%;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
             background: #797979;
             margin-top: 20px;
-        }
-
-        @media screen and (max-width: 600px) {
-            .love-container {
-                width: 100%;
-            }
-        }
-
-        .love-container:after {
-            content: '';
-            display: block;
-            margin-top: 150%;
+            filter: grayscale(100%);
+            height: 540px;
+            border-radius: 3px;
+            margin-bottom: 20px;
         }
 
         .resume-love {

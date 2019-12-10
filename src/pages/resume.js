@@ -38,7 +38,7 @@ class Resume extends React.Component {
             <span className="keywords"><a href="/categories.html#composing%20software">Function Compose</a></span>、
             <span className="keywords"><a href="/categories.html#React">React/Redux</a></span>
           </p>
-          {/* <Love /> */}
+          <Love />
           <p className="resume-p">
             Mello is currently a Frontend developer engineer and manager of the Frontend Platform team at
             <a href="http://netease.com" target="_blank"> NetEase</a>. He originally joined the Listings team at NetEase in Apr 2017, tasked to revamp the event details pages from an archaic MySpace-style design to a modern, fully responsive layout.
@@ -55,7 +55,7 @@ class Resume extends React.Component {
 
 const Love = () => (
   <div className="love-container">
-    <img src={love} className="resume-love" />
+    <img src="https://p1.music.126.net/cApgVVmtcKYFyxunEmHCkA==/109951164540902241.jpg" className="resume-love" />
   </div>
 );
 
@@ -113,11 +113,14 @@ const WorkInfo = () => (
     <div className="timeline">
       <div className="title">
         <div className="year work">
-          <span className="work-date">Apr 2017 - Now</span> Fontend Developer @ <a href="http://netease.com" target="_blank">NetEase</a></div>
+          <span className="work-date">Apr 2017 - Now</span> Fontend Developer @ <a href="http://netease.com" target="_blank">NetEase</a>
+        </div>
         <div className="year work">
-          <span className="work-date">May 2014 - Apr 2017</span> Web Assistant @ <a href="https://facebook.com" target="_blank">baokang</a></div>
-        <div className="year work">
-          <span className="work-date">July 2010 - May 2014</span> Software Developer @ <a href="http://sap.com" target="_blank">tongyan</a></div>
+          <span className="work-date">May 2013 - Apr 2017</span> Web Assistant @ <a href="https://www.bilibili.com/" target="_blank">Bilibili</a>
+        </div>
+        {/* <div className="year work">
+          <span className="work-date">July 2010 - May 2014</span> Software Developer @ <a href="http://sap.com" target="_blank">tongyan</a>
+        </div> */}
       </div>
     </div>
   </div>
