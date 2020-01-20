@@ -1,6 +1,5 @@
 import React from 'react';
 import Container from 'components/Container';
-import love from '../images/love.png';
 import book1 from '../images/1.jpeg';
 import book2 from '../images/2.jpeg';
 import book3 from '../images/3.jpeg';
@@ -29,6 +28,8 @@ class Resume extends React.Component {
         }}>
           <h2 className="resume-title">About</h2>
           <p className="resume-p">Mello is a holy buddhist. He lives in HangZhou, ZheJiang. He likes basketball, books, games and travel.</p>
+          <br />
+          <p className="resume-p">Math is my next programming language</p>
           <br />
           <p className="resume-p"><b>Keywords: </b>
             <span className="keywords"><a href="/categories.html#functional">Functional Programming</a></span>、
