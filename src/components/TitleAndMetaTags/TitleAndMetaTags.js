@@ -18,7 +18,7 @@ type Props = {
   ogUrl: string,
 };
 
-const TitleAndMetaTags = ({title, ogDescription, ogUrl}: Props) => {
+const TitleAndMetaTags = ({ title, ogDescription, ogUrl }: Props) => {
   return (
     <Helmet title={title}>
       <meta property="og:title" content={title} />
@@ -30,6 +30,15 @@ const TitleAndMetaTags = ({title, ogDescription, ogUrl}: Props) => {
         content={defaultDescription + ogDescription}
       />
       <meta property="fb:app_id" content="623268441017527" />
+      <script type="application/ld+json">{`
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?128683c0ba41f92f130e92ac9620d31b";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    `}</script>
     </Helmet>
   );
 };
