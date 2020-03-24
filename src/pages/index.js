@@ -11,7 +11,7 @@ import Link from 'gatsby-link';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
 import React, { Component } from 'react';
 import { urlRoot } from 'site-constants';
-import {  media, sharedStyles } from 'theme';
+import { media, sharedStyles } from 'theme';
 
 /**
  * 函数防抖，滚动事件结束之后，在执行
@@ -21,7 +21,7 @@ import {  media, sharedStyles } from 'theme';
  */
 const debounce = (fn, wait) => {
   let timeout = null;
-  return function() {
+  return function () {
     if (timeout !== null) {
       setTimeout(timeout);
     }
@@ -95,7 +95,7 @@ class AllBlogs extends Component {
   }
   handleImgLoad(index) {
     const that = this;
-    return function(event) {
+    return function (event) {
       that.smImgs.get(index).style.opacity = 0;
       event.target.style.opacity = 1;
     };

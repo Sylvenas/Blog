@@ -1,7 +1,7 @@
 ---
-title: "composing software introduction"
+title: "FP1：Composing software introduction"
 author: [Sylvenas]
-categories: "composing software"
+categories: "functional"
 img: './img/2017-12-10.jpg'
 excerpt: '在我高中第一节程序设计课上，我被告知软件开发是"将复杂问题转化为较小问题，并组合简单的解决方案并形成完整的解决方案以解决复杂的问题的行为"。'
 ---

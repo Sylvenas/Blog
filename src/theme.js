@@ -285,9 +285,10 @@ const sharedStyles = {
     },
 
     '& h2': {
+      color: '#323a45',
       borderTop: `1px solid ${colors.divider}`,
-      marginTop: 44,
-      paddingTop: 40,
+      marginTop: 20,
+      paddingTop: 20,
       lineHeight: 1.2,
 
       ':first-child': {
@@ -300,7 +301,7 @@ const sharedStyles = {
         fontSize: 20,
       },
       [media.greaterThan('xlarge')]: {
-        fontSize: 35,
+        fontSize: 20,
       },
     },
 

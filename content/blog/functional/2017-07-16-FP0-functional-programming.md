@@ -1,7 +1,7 @@
 ---
-title: "FP1：rise and fall of functional programming"
+title: "FP0：Rise and fall of functional programming"
 author: [Sylvenas]
-categories: "composing software"
+categories: "functional"
 img: './img/2017-12-16.jpeg'
 ---
 

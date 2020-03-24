@@ -1,7 +1,7 @@
 ---
 title: "FP2：Why Learn FP in JavaScript?"
 author: [Sylvenas]
-categories: "composing software"
+categories: "functional"
 img: './img/2017-12-24.jpeg'
 ---
 
