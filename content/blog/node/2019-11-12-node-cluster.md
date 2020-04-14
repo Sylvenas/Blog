@@ -79,6 +79,53 @@ get worker log: [master] send msg 6 to worker 7
 
 同样我们可以通过监听worker进程的`exit`事件，在工作进程因为各种原因挂掉的时候通知Master重新开启一个工作进程。
 
+还有一种多进程之间通信必须做的是：`session保存与共享`，我们一般在服务端使用`session`来保存用户的登录状态和用户信息，举个例子：
+``` js
+user.post('/login', (req, res) => {
+  let userInfo = req.body,
+    data;
+  User.find(userInfo, (err, docs) => {
+    if (err) throw err;
+    else {
+      if (docs.length > 0) {
+        // 需要引入express-session
+        // 往session中存入信息同样会往浏览器cookie中写入数据，作为对应和标记(如果没有写入cookie,则要检查请求，代理等操作是否允许写入)
+        req.session.user = docs[0],
+          data = {
+            code: 200,
+            msg: 'login successfully'
+          }
+      } else {
+        data = {
+          code: 400,
+          msg: 'Incorrect username or password.'
+        }
+      }
+      res.send(data);
+    }
+  })
+});
+```
+上述操作仅仅在当前进程记录了登录状态，但是如果另一个请求是被别的进程处理的，别的进程是不知道用户已经登录的，会重定向到登录页面，这样很明显是不对的，所以多个进程之间必须保持同步登录的状态，这个时候我们可以借助`Mongo DB`等`NOSQL`来完成：
+``` js
+const expressSession = require('express-session')
+const MongoStore = require('connect-mongo')(expressSession);
+
+app.use(expressSession({
+  secret: config.sessionSecret,
+  name: 'username',
+  saveUninitialized: false,
+  resave: true,
+  cookie: {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 2,
+  },
+  store: new MongoStore({
+    url: config.sessionMongoUrl //mongo db connect url
+  })
+}));
+```
+
 ## Node.js 集群管理
 
 ### PM2
