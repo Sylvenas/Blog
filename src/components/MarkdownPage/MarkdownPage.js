@@ -11,6 +11,7 @@ import Container from 'components/Container';
 import Flex from 'components/Flex';
 import MarkdownHeader from 'components/MarkdownHeader';
 import Share from 'components/Share';
+import AboutMe from 'components/AboutMe';
 import React from 'react';
 import StickyResponsiveSidebar from 'components/StickyResponsiveSidebar';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';
@@ -71,6 +72,7 @@ const MarkdownPage = ({
                   dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
                 />
                 <Share slug={markdownRemark.fields.slug} />
+                <AboutMe />
               </div>
             </Flex>
 

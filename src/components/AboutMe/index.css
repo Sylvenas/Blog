@@ -1,0 +1,10 @@
+.about-me{
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.about-me img{
+  height: 50px;
+  width: 50px;
+}
