@@ -21,7 +21,7 @@ import { media, sharedStyles } from 'theme';
  */
 const debounce = (fn, wait) => {
   let timeout = null;
-  return function () {
+  return function() {
     if (timeout !== null) {
       setTimeout(timeout);
     }
@@ -56,8 +56,10 @@ class AllBlogs extends Component {
   }
   componentWillMount() {
     this.props.data.allMarkdownRemark.edges.forEach(item => {
-      item.node.imgName = item.node.frontmatter.img.substring(6, 16);
-      item.node.imgType = item.node.frontmatter.img.substring(17);
+      if (item.node.frontmatter.img) {
+        item.node.imgName = item.node.frontmatter.img.substring(6, 16);
+        item.node.imgType = item.node.frontmatter.img.substring(17);
+      }
     });
   }
   componentDidMount() {
@@ -95,7 +97,7 @@ class AllBlogs extends Component {
   }
   handleImgLoad(index) {
     const that = this;
-    return function (event) {
+    return function(event) {
       that.smImgs.get(index).style.opacity = 0;
       event.target.style.opacity = 1;
     };

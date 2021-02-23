@@ -131,13 +131,23 @@ const Projects = () => (
     margin: '1em auto 1em',
   }}>
     <h2 className="resume-title">Projects</h2>
-    <span className="resume-sub-title">react-magic</span>
+    <span className="resume-sub-title"><a target="_blank" href="https://github.com/lit-forest/react-magic">react-magic</a></span>
     <p className="resume-p">
       A collection of magic animations for react components. Although React provides a way to implement arbitrary animations, it is not an easy task to do it, even for simple animations. That's where react-magic package comes in. It supports inline styles work with
       <a href="https://github.com/Khan/aphrodite" target="_blank"> aphrodite</a>. Most animations was implemented base on
       <a href="https://github.com/miniMAC/magic" target="_blank"> magic</a>.
     </p>
-    <span className="resume-sub-title">leaflet.migrationLayer</span>
+    <span className="resume-sub-title"><a target="_blank" href="https://github.com/x-orpheus/catch-react-error">catch-react-error</a></span>
+    <p className="resume-p">
+      <p>This package supports both React And React Native.</p> 
+
+      <p>This project make it easy to protect your react source code.</p>
+
+      <p>We combine decorators and React Error Boundaries together.</p>
+
+      <p>The React Error Boundaries don't support the Server Side Rendering，so we use try/catch to deal such condition.</p>
+    </p>
+    <span className="resume-sub-title"><a target="_blank" href="https://github.com/lit-forest/leaflet.migrationLayer">leaflet.migrationLayer</a></span>
     <p className="resume-p">
       leafet.migrationLayer is used to show migration data such as population,flight,vehicle,traffic and so on.Data visualization on map.
     </p>
