@@ -55,7 +55,7 @@ const MarkdownHeader = ({ title, authors, date }: { title: string }) => (
         {date}{' '}
         <span>
           by{' '}
-          {authors[0] ? authors[0] : ''}
+          {(authors && authors[0]) ? authors[0] : ''}
         </span>
       </div>
     </div>
