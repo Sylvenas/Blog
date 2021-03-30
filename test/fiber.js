@@ -1,5 +1,4 @@
-
-let  HostRootfiber = {};
+let HostRootfiber = {};
 let nextUnitOfWork = HostRootfiber;
 
 function workLoop(isYieldy) {
@@ -7,7 +6,8 @@ function workLoop(isYieldy) {
     while (nextUnitOfWork !== null) {
       nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
     }
-  } else {}
+  } else {
+  }
 }
 
 function performUnitOfWork(workInProgress) {
@@ -50,3 +50,5 @@ function completeWork(workInProgress) {
   console.log('work completed for ' + workInProgress.name);
   return null;
 }
+
+workLoop();

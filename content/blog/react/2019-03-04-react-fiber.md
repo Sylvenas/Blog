@@ -1,5 +1,5 @@
 ---
-title:  "[译] React Fiber 中为何以及如何使用链表遍历组件树"
+title:  "[译+改] React Fiber 中为何以及如何使用链表遍历组件树"
 author: [Sylvenas]
 categories: 'React'
 img: './img/2015-03-25.jpg'
@@ -29,7 +29,22 @@ Fiber 架构有两个主要的渲染阶段:
 
 > 较新的浏览器以及 React Native 实现了相关 API, 来解决这个问题...
 
-全局函数—— [requestIdleCallback](https://developers.google.com/web/updates/2015/08/using-requestidlecallback), 可以把函数加入到队列中, 等到浏览器空闲的时候再去调用. 下面的例子告诉你如何使用它:
+全局函数—— [requestIdleCallback](https://developers.google.com/web/updates/2015/08/using-requestidlecallback), 可以把函数加入到队列中, 等到浏览器空闲的时候再去调用，然而我们最好在这个时间范围内执行完毕，然后交还控制权给浏览器,不然会依然会导致UI阻塞,我们可以看下浏览器每一帧都执行了什么任务(Task), 花费了多少时间。
+
+![](https://p6.music.126.net/obj/wo3DlcOGw6DClTvDisK1/8078327500/0765/0701/0d25/29978cb29a7d1e3d1b17554762f9765b.png)
+
+浏览器在一帧内可能会做执行下列任务，而且它们的执行顺序基本是固定的:
+- 处理用户输入事件
+- Javascript执行
+- requestAnimation 调用
+- 布局 Layout
+- 绘制 Paint
+
+上面说理想的一帧时间是 16ms (1000ms / 60)，如果浏览器处理完上述的任务(布局和绘制之后)，还有盈余时间，浏览器就会调用 requestIdleCallback 的回调。例如:
+
+![](https://p5.music.126.net/obj/wo3DlcOGw6DClTvDisK1/8078337702/b5ea/0f2a/4114/a6e95292a28c2b0d100da1a4bf1be6a6.png)
+
+下面的例子告诉你如何使用它:
 
 ``` js
 requestIdleCallback((deadline)=>{
@@ -39,7 +54,7 @@ requestIdleCallback((deadline)=>{
 
 如果在 `console` 控制台执行上述代码, Chrome 浏览器会打印 `49.9, false`. 这表明我有 `49.9ms` 去做任何我想做的工作, 并且时间还有富余, 否则 `deadline.didTimeout` 会变为 `true`. 记住, 一旦浏览器执行工作, `timeRemaining` 会立刻改变, 所以应该随时检查它。
 
-> requestIdleCallback 在使用上其实是有局限性的, 不能 频繁地调用 它去实现平滑的 UI 渲染, 所以 React 团队 不得不实现他们自己的版本。
+> requestIdleCallback 在使用上其实是有局限性的, 不能频繁地调用它去实现平滑的 UI 渲染(当浏览器异常繁忙的时候，可能不会有盈余时间，这时候requestIdleCallback回调可能就不会被执行),另外由于只有较新的浏览器实现了该API, 所以 React 团队 不得不实现他们自己的版本。
 
 假如我们将 React 更新组件的代码放到 `performWork` 函数, 使用 `requestIdleCallback` 去调度, 代码会变成下面这样:
 
@@ -58,7 +73,7 @@ requestIdleCallback((deadline) => {
 
 为了解决这个问题, React 重新实现了树的遍历算法, **原本的算法采用基于内置堆栈的同步递归策略, 而新的算法则是基于链表和指针的异步策略**。 Andrew 的文章也提到了:
 
-> 如果只依赖内置的调用栈, 那么 React 会一直工作直到调用栈为空... 如果可以中断调用栈并且手动操作调用栈的每一帧, 那不是美滋滋么? 这其实就是 React Fiber 的思想. **Fiber 专为 React 组件设计, 它重新实现了调用栈**。 你也可以把每个 Fiber 当作一个帧。
+> 如果只依赖内置的调用栈, 那么 React 会一直工作直到调用栈为空...， 如果可以中断调用栈并且手动操作调用栈的每一帧, 那不是美滋滋么? 这其实就是 React Fiber 的思想. **Fiber 专为 React 组件设计, 它重新实现了调用栈**。 你也可以把每个 Fiber 当作一个帧。
 
 ## 什么是堆栈?
 
@@ -130,7 +145,22 @@ a1, b1, b2, c1, d1, d2, b3, c2
 
 递归非常适合遍历树型结构. 但是它有一个最大的局限性, 那就是**不能将某个工作拆分为粒度更小的单元**。 我们不能暂停组件的更新工作并且在后续的某个时间段内恢复它. React 会一直通过这种方式来遍历, 直到处理完所有的组件并且调用栈为空(这可能耗时较长)。
 
-那么 React 是如何不通过递归的形式去遍历整棵树的呢？ 事实上, React 采用了**单链表树状结构的遍历算法**。 这使得可以**暂停遍历并且抑制调用栈的增长**。
+这个问题的根源还在于JSX，JSX同时满足了**组件化与标签化**
+
+``` jsx
+<div>
+   <Foo>
+      <Bar />
+   </Foo>
+</div>
+```
+
+但**标签化是天然套嵌的结构，意味着它会最终编译成递归执行的代码**。递归不可避免会产生调用"栈"的堆叠，使用栈很方便，因为你无需自己跟踪“盒子堆”，栈替你这样做了,但是也要付出代价：存储详尽的信息可能占用大量的内存。每个函数调用都要占用一定的内存，如果栈很高，就意味着计算机存储了大量函数调用的信息，在这种情况下，你有两种选择：
+
+- 重新编写代码，转而使用循环
+- 使用**尾递归**
+
+由于尾递归调用的使用条件苛刻，所以方案选择只能是转而使用循环， 事实上, React 采用了**单链表树状结构的遍历算法**。 这使得可以**暂停遍历并且抑制调用栈的增长**。
 
 ### 链表遍历
 
@@ -141,6 +171,8 @@ a1, b1, b2, c1, d1, d2, b3, c2
 - return - 指向父节点
 
 在新的 reconciliation 算法条件下, 由 Fiber 来调用上述字段组成的数据结构. 在底层它代表一个 React Element. 我的下一篇文章会讲述更多的有关于它的知识.
+
+> 注意，child属性仅仅指向“长子”，而次子是通过“长子”的sibling属性指向的，但是不管长子还是次子，都包含返回父元素的return 引用
 
 如下所示的流程图展示了各个节点间的关系:
 
@@ -239,6 +271,8 @@ function walk(o) {
 
 尽管上面的代码实现不难理解, 你还是要自己 尝试一下. 上述算法的理念是保持对 current node(当前节点) 的引用, 并且在遍历树中的某一条路径的时候重新赋值, 直到遍历到尽头. 之后使用 return 指针返回父级节点，这是一种父级优先，深度优先的遍历算法。
 
+[这里查看完整代码](https://gist.github.com/Sylvenas/e8aba3432a5ab2858e93deb1d03c08a6)
+
 如果我们检查上述算法的调用栈, 就会看到:
 
 ![](https://d2.music.126.net/dmusic/obj/w5zCg8OAw6HDjzjDgMK_/8052870423/b407/2bb5/00b0/52d7a95267980b8d55385bfbdefd30c2.gif?download=1_ybVgRoNf-dBxR_OKxn4oKQ.gif)
@@ -276,3 +310,53 @@ function walk(o) {
 }
 ```
 我们可以在任何时候中断或恢复遍历. 这正是使用 requestIdleCallback API 的前置条件.
+
+
+## What is Fiber ?
+Fiber 可以从两个角度理解：
+### 一种流程控制原语
+进程/线程是经常遇到的概念，还有一个概念“协程”,在[Ruby中的协程](https://ruby-doc.org/core-3.0.0/Fiber.html)就称为“Fiber”,其实很多语言都有类似的机制，例如 Lua 的Coroutine, 还有前端开发者比较熟悉的 ES6 新增的 `Generator`。'协程'只是一种控制流程的让出机制。要理解协程，你得和普通函数一起来看, 以Generator为例:
+
+普通函数执行的过程中无法被中断和恢复：
+
+``` js
+const tasks = []
+function run() {
+  let task
+  while (task = tasks.shift()) {
+    execute(task)
+  }
+}
+```
+
+而 Generator 可以:
+
+``` js
+const tasks = []
+function * run() {
+  let task
+
+  while (task = tasks.shift()) {
+    // 🔴 判断是否有高优先级事件需要处理, 有的话让出控制权
+    if (hasHighPriorityEvent()) {
+      yield
+    }
+
+    // 处理完高优先级事件后，恢复函数调用栈，继续执行...
+    execute(task)
+  }
+}
+```
+
+React Fiber 的思想和协程的概念是契合的: React render/reconciliation的过程可以被中断，可以将控制权交回浏览器，让位给高优先级的任务，浏览器空闲后再恢复render/reconciliation。
+
+### 一种数据结构
+Fiber的另外一种解读是'纤维': 这是一种数据结构或者说执行单元。React要实现遍历 component tree 从“递归”到“循环”的转换，必然需要一种特殊的数据结构，而这种结构就是上文中介绍的`Node`,核心是包含`child`,`return`,`sibling`三个用来表示关系的结构。
+
+> Fiber 完整的数据结构可以[查看](https://github.com/lit-forest/Blog/issues/1)
+
+## 总结
+Fiber是一种模拟函数调用栈的方案，一种可以中断/继续的方案，而为了实现这个方案，react定义了一种包含`child`,`return`,`sibling`的数据结构,同时fiber中包含着虚拟dom的指针(stateNode)，来完成从“递归”到“循环”的替换。
+
+
+
