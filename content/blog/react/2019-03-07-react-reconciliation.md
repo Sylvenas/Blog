@@ -118,7 +118,7 @@ class ClickCounter {
 
 因为React为每个React元素创建了一个fiber node，并且因为我们有一个这些元素的树，所以我们将拥有一个fiber node tree。对于我们的示例应用程序，它看起来像这样:
 
-![TODO]()
+![fiber node tree](https://p5.music.126.net/obj/wo3DlcOGw6DClTvDisK1/8052715769/9d42/293c/0e06/8a958ee002dba604ed7cd403c0b2521e.png)
 
 这在上一篇文章中已经详细的介绍过了，相信不难理解。
 
@@ -230,7 +230,7 @@ fiber节点上有很多字段，我在前面的部分中描述了alternate字段
 
 - **type**：定义与此fiber关联的功能或类。对于类组件，它指向构造函数；对于DOM元素，它指定HTML tag。可以使用这个字段来理解fiber节点与哪个元素相关。
 
-- **tag**：定义fiber的类型。它在reconcile算法中用于确定需要完成的工作。如前所述，工作取决于React元素的类型，函数createFiberFromTypeAndProps将**React Element映射到相应的fiber节点类型**。在我们的应用程序中，ClickCounter组件的属性标记是1，表示ClassComponent，而span元素的属性标记是5，表示Host Component。[TODO：查看完整Tag]()。
+- **tag**：定义fiber的类型。它在reconcile算法中用于确定需要完成的工作。如前所述，工作取决于React元素的类型，函数createFiberFromTypeAndProps将**React Element映射到相应的fiber节点类型**。在我们的应用程序中，ClickCounter组件的属性标记是1，表示ClassComponent，而span元素的属性标记是5，表示Host Component。[查看完整Tag](https://github.com/lit-forest/Blog/issues/1#issuecomment-807993919)。
 
 - **updateQueue**：用于状态更新，回调函数，DOM更新的队列
 
@@ -373,7 +373,7 @@ function completeWork(workInProgress) {
 
 当workInProgress fide node没有子节点时，React会进入`completeUnitOfWork`函数。完成当前fiber的工作后，它会检查是否有兄弟节点；如果找到，React退出该函数并返回指向兄弟节点的指针，兄弟节点将被赋值给nextUnitOfWork变量，React将从这个兄弟开始执行分支的工作。重要的是要理解，在这一点上，React只完成了前面兄弟姐妹的工作。它尚未完成父节点的工作，只有在完成所有子节点工作后，最后才能完成父节点和回溯的工作.
 
-从实现中可以看出，performUnitOfWork 和 completeUnitOfWork主要用于迭代目的，而主要活动则在 beginWork 和 completeWork 函数中进行。在[TODO:后面的部分]()，我们将了解当 React 进入 beginWork 和 completeWork 函数时，ClickCounter 组件和 span 节点会发生什么.
+从实现中可以看出，performUnitOfWork 和 completeUnitOfWork主要用于迭代目的，而主要活动则在 beginWork 和 completeWork 函数中进行。
 
 [完整代码链接](https://gist.github.com/Sylvenas/35a2df2bf603a6e54e65047122880a87)
 
@@ -419,7 +419,6 @@ function commitRoot(root, finishedWork) {
 这些子函数中的每一个都实现了一个循环，该循环遍历effects list并检查effect的类型, 如果effect是函数类型的，则执行之。
 
 ##### commitBeforeMutationLifecycles函数
-TODO:翻看源代码
 例如，这是在effect tree上迭代并检查节点是否具有Snapshot effect的代码:
 ``` js {4,6}
 function commitBeforeMutationLifecycles() {

@@ -1,43 +1,20 @@
-/* eslint-disable */
-
-const Log = console.log;
-
-const partial = (fn, ...presetArgs) => {
-	const placeholder = '_';
-
-	const bound = function () {
-
-		let position = 0;
-		const length = presetArgs.length;
-		const args = Array(length);
-
-		for (let i = 0; i < length; i++) {
-			args[i] = presetArgs[i] === placeholder ?
-				arguments[position++] : presetArgs[i]
-		}
-
-		while (position < arguments.length) {
-			args.push(arguments[position++])
-		}
-
-		return fn.apply(this, args)
-	};
-
-	return bound;
+var hook = {
+    memoizedState: null,
+    next: null
+};
+/**
+ * Hook数据结构
+ *
+ * hook = {
+ *  memoizedState: any, // 保存当前 hook 的 state
+ *  next: hook,         // next 指向下一个 hook
+ * };
+ */
+function useState(initialState) {
+    return [];
 }
-
-
-String.prototype.first = partial(String.prototype.substring, 0, '_');
-
-String.prototype.last = partial(String.prototype.slice, '_');
-
-String.prototype.asName = partial(String.prototype.replace, /(\w+)\s(\w+)/, '$2, $1')
-
-Array.prototype.compute = partial(Array.prototype.map)
-
-
-Log('abcdef'.first(3).last(-1));
-
-Log('zhao tao'.asName());
-
-Log([1, 2].compute(x => x * 3))
+function TeamsInfo() {
+    var _a = useState(18), age = _a[0], setAge = _a[1];
+    var _b = useState('income'), name = _b[0], setName = _b[1];
+    console.log("Age: " + age + "; Name: " + name);
+}
