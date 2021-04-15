@@ -10,8 +10,9 @@ const options = {
   passphrase: 'forthelichking',
 };
 
-https.createServer(options, (req, res) => {
-  res.writeHead(200);
-  res.end('Hello Secure World');
-}).listen(443);
-
+https
+  .createServer(options, (req, res) => {
+    res.writeHead(200);
+    res.end('Hello Secure World');
+  })
+  .listen(443);
