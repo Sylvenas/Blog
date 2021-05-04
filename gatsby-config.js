@@ -2,73 +2,73 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
-*/
+ */
 
-'use strict';
+"use strict";
 
 module.exports = {
   siteMetadata: {
-    title: 'React: A JavaScript library for building user interfaces',
-    siteUrl: 'https://reactjs.org',
-    rssFeedTitle: 'Little Forest',
-    rssFeedDescription: 'A JavaScript library for building user interfaces',
+    title: "React: A JavaScript library for building user interfaces",
+    siteUrl: "https://reactjs.org",
+    rssFeedTitle: "Little Forest",
+    rssFeedDescription: "A JavaScript library for building user interfaces"
   },
   mapping: {
-    'MarkdownRemark.frontmatter.author': 'AuthorYaml',
+    "MarkdownRemark.frontmatter.author": "AuthorYaml"
   },
   plugins: [
-    'gatsby-source-react-error-codes',
+    // 'gatsby-source-react-error-codes',
     //'gatsby-transformer-authors-yaml',
-    'gatsby-plugin-netlify',
-    'gatsby-plugin-glamor',
-    'gatsby-plugin-react-next',
+    "gatsby-plugin-netlify",
+    "gatsby-plugin-glamor",
+    "gatsby-plugin-react-next",
     //'gatsby-plugin-twitter',
     {
-      resolve: 'gatsby-plugin-nprogress',
+      resolve: "gatsby-plugin-nprogress",
       options: {
-        color: '#f36',
-      },
+        color: "#f36"
+      }
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
+        name: "pages"
+      }
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'packages',
-        path: `${__dirname}/content/`,
-      },
+        name: "packages",
+        path: `${__dirname}/content/`
+      }
     },
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          'gatsby-remark-responsive-iframe',
+          "gatsby-remark-responsive-iframe",
           {
-            resolve: 'gatsby-remark-images',
+            resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 840,
-            },
+              maxWidth: 840
+            }
           },
-          'gatsby-remark-autolink-headers',
-          'gatsby-remark-use-jsx',
+          "gatsby-remark-autolink-headers",
+          "gatsby-remark-use-jsx",
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: "gatsby-remark-prismjs",
             options: {
-              classPrefix: 'gatsby-code-',
-            },
+              classPrefix: "gatsby-code-"
+            }
           },
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
-      },
+          "gatsby-remark-copy-linked-files",
+          "gatsby-remark-smartypants"
+        ]
+      }
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     // {
     //   resolve: 'gatsby-plugin-google-analytics',
     //   options: {
@@ -76,7 +76,7 @@ module.exports = {
     //   },
     // },
     {
-      resolve: 'gatsby-plugin-feed',
+      resolve: "gatsby-plugin-feed",
       options: {
         query: `
          {
@@ -98,12 +98,12 @@ module.exports = {
                   {
                     title: edge.node.frontmatter.title,
                     description: edge.node.html,
-                    date: require('moment')(edge.node.fields.date).format(
-                      'MMMM DD, YYYY, h:mm A',
+                    date: require("moment")(edge.node.fields.date).format(
+                      "MMMM DD, YYYY, h:mm A"
                     ),
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  },
+                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug
+                  }
                 );
               });
             },
@@ -129,12 +129,12 @@ module.exports = {
                   }
                 }
             `,
-            output: '/feed.xml',
-          },
-        ],
-      },
+            output: "/feed.xml"
+          }
+        ]
+      }
     },
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-catch-links',
-  ],
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-catch-links"
+  ]
 };

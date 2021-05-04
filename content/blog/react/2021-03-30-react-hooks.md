@@ -3,6 +3,7 @@ title: 'React Hooks 原理及实现'
 author: [Sylvenas]
 categories: 'React'
 img: './img/2015-03-25.jpg'
+catalogue: ['函数如何拥有状态','单向链表存储 hook list','循环链表存储 updater queue','计算最新的值']
 ---
 
 React Hooks 主要用来解决两个问题，
