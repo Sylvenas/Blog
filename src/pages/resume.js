@@ -36,7 +36,16 @@ class Resume extends React.Component {
             games and travel.
           </p>
           <br />
-          <p className="resume-p">Math is my next programming language</p>
+          <p className="resume-p">
+            I am a senior front-end developer with 6 years of experience, and a
+            code-aholic, invested a lot of time in the open source community,
+            developing and maintaining several projects. I love to summarize &
+            share.I originally joined the Cloud Music team at NetEase in Apr
+            2017, tasked to revamp the event details pages from an archaic
+            MySpace-style design to a modern, fully responsive layout.
+          </p>
+          <br />
+          <p className="resume-p">Math is my next programming language.</p>
           <br />
           <p className="resume-p">
             <b>Keywords: </b>
@@ -67,14 +76,6 @@ class Resume extends React.Component {
             </span>
           </p>
           <Love />
-          <p className="resume-p">
-            I am a senior front-end developer with 6 years of experience, and a
-            code-aholic, invested a lot of time in the open source community,
-            developing and maintaining several projects. I love to summarize &
-            share.I originally joined the Cloud Music team at NetEase in Apr
-            2017, tasked to revamp the event details pages from an archaic
-            MySpace-style design to a modern, fully responsive layout.
-          </p>
         </div>
         <Posts handleClick={this.handleClick} active={active} />
         {active === 0 && <WorkInfo />}
@@ -159,14 +160,14 @@ const WorkInfo = () => (
         <div className="year work">
           <span className="work-date">Apr 2017 - Now</span> Senior Front-end
           Developer @
-          <a href="http://netease.com" target="_blank">
+          <a href="https://en.wikipedia.org/wiki/NetEase" target="_blank">
             NetEase
           </a>
         </div>
         <div className="year work">
           <span className="work-date">May 2013 - Apr 2017</span> Software
           Engineer @
-          <a href="https://www.bilibili.com/" target="_blank">
+          <a href="https://en.wikipedia.org/wiki/Bilibili" target="_blank">
             Bilibili
           </a>
         </div>
