@@ -71,6 +71,9 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "createimg": "npm run svg && npm run responsiveImg",
+    "svg": "node scripts/img2svg/script/svg.js",
+    "responsiveImg": "node scripts/img2svg/script/responsive.js",
     "check-all": "npm-run-all prettier --parallel lint flow",
     "ci-check": "npm-run-all prettier:diff --parallel lint flow",
     "dev": "gatsby develop -H 0.0.0.0",
