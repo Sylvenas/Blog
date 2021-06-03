@@ -10,7 +10,7 @@ if [ -n "$msg" ]; then
    git pull
    git status
    git push
-   echo "完成add、commit、pull、push"
+   echo "sylvenas.github.io 发布完成"
 else
     echo "请添加commit信息，再来一遍"
 fi
