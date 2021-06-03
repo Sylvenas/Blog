@@ -72,7 +72,9 @@
     "url": "git+https://github.com/reactjs/reactjs.org.git"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "npm run createimg && gatsby build",
+    "publish-page": "./scripts/publish/publish.sh",
+    "copy": "rm -rf ../sylvenas.github.io/* | cp -R public/* ../sylvenas.github.io",
     "createimg": "npm run svg && npm run responsiveImg",
     "svg": "node scripts/img2svg/script/svg.js",
     "responsiveImg": "node scripts/img2svg/script/responsive.js",
